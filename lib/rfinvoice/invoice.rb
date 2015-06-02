@@ -1,6 +1,9 @@
+require 'rfinvoice/invoice/party_identifier'
+require 'rfinvoice/invoice/seller_party_details'
+require 'rfinvoice/invoice/message_transmission_details'
+
 module RFinvoice
   class Invoice < Model
-    HEADER = '<Finvoice Version="2.01" xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance xsi:noNamespaceSchemaLocation="Finvoice2.01.xsd">'.freeze
 
     STRINGS_0_35 = [
       'SellerOrganisationUnitNumber'.freeze,
@@ -25,10 +28,12 @@ module RFinvoice
       'InvoiceUrlText'.freeze,
       'StorageUrlText'.freeze,
       'ControlStampText'.freeze,
-      'AcceptanceStampText'.freeze,
+      'AcceptanceStampText'.freeze
     ]
 
-    attribute :version, ::String, default: '2.01'
+    attribute :version, ::String, default: '2.01'.freeze
+    attribute :xmlns_xsi, ::String, default: 'http://www.w3.org/2001/XMLSchema-instance'.freeze
+    attribute :xsi_nonamespace, ::String, default: 'Finvoice2.01.xsd'.freeze
 
     init_strings_0_35
     init_strings_0_512
@@ -39,6 +44,13 @@ module RFinvoice
 
     # SellerPartyDetails
     attribute :seller_party_details, ::RFinvoice::SellerPartyDetails,
-              required: true, default: ::RFinvoice::SellerPartyDetails.new
+              required: true, default: ->(_instance, _attribute) { ::RFinvoice::SellerPartyDetails.new }
+    # MessageTransmissionDetails
+    attribute :message_transmission_details, ::RFinvoice::MessageTransmissionDetails, required: false
+
+    def to_xml
+      self.decorator.to_xml
+    end
+
   end
 end

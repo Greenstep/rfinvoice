@@ -1,6 +1,6 @@
 module RFinvoice
   module Coercion
-    class String < ::Virtus::Attribute
+    class Array < ::Virtus::Attribute
       strict true
 
       def coerce(value)
@@ -13,7 +13,7 @@ module RFinvoice
       end
 
       def value_coerced?(value)
-        value.instance_of?(::String)
+        value.instance_of?(::Array)
       end
 
       def primitive
@@ -48,7 +48,7 @@ module RFinvoice
 
       def return_nil_or_raise_for
         if ::RFinvoice.configuration.raise_on_broken_value
-          fail ::RFinvoice::Error::BrokenValueFormat, "must be String(#{self.class::LIMIT})"
+          fail ::RFinvoice::Error::BrokenValueFormat, "must be Array(#{self.class::LIMIT})"
         else
           ::RFinvoice.logger.info 'Value have broken format'
           nil

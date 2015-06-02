@@ -14,9 +14,14 @@ module RFinvoice
         end
       end
 
+      def value_coerced?(value)
+        value.instance_of?(::String)
+      end
+
       def return_nil_or_raise_for
         if ::RFinvoice.configuration.raise_on_broken_value
-          raise ::RFinvoice::Error::BrokenValueFormat, "must be one of #{self.class::ENUM.join(', ')}"
+          fail ::RFinvoice::Error::BrokenValueFormat,
+               "must be one of #{self.class::ENUM.join(', ')}"
         else
           ::RFinvoice.logger.info 'Value have broken format'
           nil

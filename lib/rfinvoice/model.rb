@@ -2,6 +2,10 @@ module RFinvoice
   class Model
     include ::Virtus.model(strict: true)
 
+    def decorator
+      @decorator ||= "RFinvoice::Decorator::#{self.class.to_s.demodulize}".constantize.new(self)
+    end
+
     class << self
       def init_strings_0_35
         self::STRINGS_0_35.each do |key|
@@ -15,6 +19,5 @@ module RFinvoice
         end
       end
     end
-
   end
 end

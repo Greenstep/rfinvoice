@@ -2,20 +2,18 @@ require 'rubygems'
 require 'logger'
 require 'active_support/core_ext/string/inflections'
 require 'virtus'
+require 'representable'
+require 'representable/xml'
 require 'rfinvoice/version'
 require 'rfinvoice/configuration'
 require 'rfinvoice/error'
-require 'rfinvoice/type/string'
-require 'rfinvoice/type/identifier'
+require 'rfinvoice/type'
 require 'rfinvoice/model'
-require 'rfinvoice/invoice/party_identifier'
-require 'rfinvoice/invoice/seller_party_details'
 require 'rfinvoice/invoice'
-
+require 'rfinvoice/decorator'
 require 'rfinvoice/railtie' if defined?(Rails::Railtie)
 
 module RFinvoice
-
   class << self
     attr_writer :configuration
 
@@ -25,12 +23,15 @@ module RFinvoice
 
     # Look for the logger currently defined
     def logger
-      self.configuration.logger || ::Logger.new(nil)
+      configuration.logger || ::Logger.new(nil)
     end
 
     def configure
       yield(configuration)
     end
 
+    def reset
+      @configuration = Configuration.new
+    end
   end
 end

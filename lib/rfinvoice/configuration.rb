@@ -8,6 +8,5 @@ module RFinvoice
     def initialize
       @raise_on_broken_value = true
     end
-
   end
 end

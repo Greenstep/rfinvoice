@@ -1,0 +1,5 @@
+require 'rfinvoice/decorator/base'
+require 'rfinvoice/decorator/seller_party_details'
+require 'rfinvoice/decorator/message_sender_details'
+require 'rfinvoice/decorator/message_transmission_details'
+require 'rfinvoice/decorator/invoice'
