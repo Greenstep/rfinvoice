@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['alex@simonov.me']
   spec.description   = 'Finvoice invoices generation with ruby.'
   spec.summary       = 'Finvoice invoices generation with ruby.'
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/Greenstep/rfinvoice'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")

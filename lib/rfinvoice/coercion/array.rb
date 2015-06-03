@@ -1,6 +1,6 @@
 module RFinvoice
   module Coercion
-    class Array < ::Virtus::Attribute
+    class Array < ::Virtus::Attribute::Collection
       strict true
 
       def coerce(value)
@@ -13,7 +13,7 @@ module RFinvoice
       end
 
       def value_coerced?(value)
-        value.instance_of?(::Array)
+        value.is_a?(::Array)
       end
 
       def primitive
