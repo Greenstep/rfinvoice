@@ -15,10 +15,13 @@ module RFinvoice
         property key.underscore.to_sym, as: key.to_sym
       end
 
+      ::RFinvoice::Invoice::STRINGS_0_512.each do |key|
+        property key.underscore.to_sym, as: key.to_sym
+      end
+
       ['MessageTransmissionDetails', 'SellerPartyDetails'].each do |klass|
         property klass.underscore, decorator: "RFinvoice::Decorator::#{klass}".constantize
       end
-
     end
   end
 end

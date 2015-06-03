@@ -1,3 +1,5 @@
+require 'rfinvoice/coercion/base'
+require 'rfinvoice/coercion/limiting'
 require 'rfinvoice/type/string'
 require 'rfinvoice/type/identifier'
 require 'rfinvoice/type/array'

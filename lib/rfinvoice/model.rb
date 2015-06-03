@@ -7,16 +7,23 @@ module RFinvoice
     end
 
     class << self
-      def init_strings_0_35
-        self::STRINGS_0_35.each do |key|
-          attribute key.underscore, ::RFinvoice::Type::String0_35, required: false
+      def init_strings(type, array, required)
+        klass = "RFinvoice::Type::String#{type}".constantize
+        array.each do |key|
+          attribute key.underscore, klass, required: required
         end
       end
 
-      def init_strings_0_512
-        self::STRINGS_0_512.each do |key|
-          attribute key.underscore, ::RFinvoice::Type::String0_512, required: false
-        end
+      def init_strings_0_35(array, required = false)
+        init_strings('0_35', array, required)
+      end
+
+      def init_strings_2_35(array, required = false)
+        init_strings('2_35', array, required)
+      end
+
+      def init_strings_0_512(array, required = false)
+        init_strings('0_512', array, required)
       end
     end
   end

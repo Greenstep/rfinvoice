@@ -1,4 +1,5 @@
 require 'rfinvoice/decorator/base'
+require 'rfinvoice/decorator/party_identifier'
 require 'rfinvoice/decorator/seller_party_details'
 require 'rfinvoice/decorator/message_sender_details'
 require 'rfinvoice/decorator/message_transmission_details'

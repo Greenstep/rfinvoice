@@ -1,6 +1,7 @@
 module RFinvoice
   module Coersion
-    class String < ::Virtus::Attribute
+    class Identifier < ::Virtus::Attribute
+      include ::RFinvoice::Coercion::Base
       strict true
       primitive ::RFinvoice::Type::Identifier
       ENUM = %w(DUNS GLN HETU EDI)

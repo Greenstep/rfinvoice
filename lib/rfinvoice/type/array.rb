@@ -8,7 +8,7 @@ module RFinvoice
 
     GENERIC_ARRAY_TYPES = [
       [0, 2], [0, 3], [0, 7],
-      [1, 2], [1, 3]
+      [1, 2], [1, 3], [1, 1000]
     ].each do |(min, max)|
       # Array specific class
       klass_name = "Array#{min}_#{max}" #

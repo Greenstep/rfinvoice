@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe ::RFinvoice::Invoice do
 
   let(:default_party_details) {
-    ::RFinvoice::SellerPartyDetails.new(seller_organization_name: ['Test Organization'])
+    ::RFinvoice::SellerPartyDetails.new(seller_organisation_name: ['Test Organization'])
   }
 
   before :each do
