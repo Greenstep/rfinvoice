@@ -7,7 +7,7 @@ RSpec.describe ::RFinvoice::Coercion::String do
     expect(subject.strict?).to be_truthy
   end
 
-  context 'with limit' do
+  context 'with limit as range' do
     subject { described_class.build(::RFinvoice::Type::String0_35) }
 
     it 'should raise error on broken value what is string' do

@@ -7,7 +7,7 @@ RSpec.describe ::RFinvoice::Coercion::NMToken do
     expect(subject.strict?).to be_truthy
   end
 
-  context 'with limit' do
+  context 'with limit as range' do
     subject { described_class.build(::RFinvoice::Type::NMToken0_14, name: :test) }
 
     it 'should raise error on broken value what is string' do
@@ -22,8 +22,20 @@ RSpec.describe ::RFinvoice::Coercion::NMToken do
       expect { subject.coerce({}) }.to raise_error
     end
 
-    it 'should return value' do
-      expect(subject.coerce('s' * 10)).to eq('s' * 10)
+    ['тест', '测试', 'SomeTest'].each do |key|
+      it "should allow #{key}" do
+        expect(subject.coerce(key)).to eq(key)
+      end
+    end
+  end
+
+  context 'with limit as exact number' do
+    subject { described_class.build(::RFinvoice::Type::NMToken2, name: :test) }
+    it 'should raise error on broken value what is string' do
+      expect { subject.coerce('s' * 15) }.to raise_error
+    end
+    it 'should allow SS' do
+      expect(subject.coerce('SS')).to eq('SS')
     end
   end
 

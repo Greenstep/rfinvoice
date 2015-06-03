@@ -1,8 +1,6 @@
 module RFinvoice
   module Decorator
-    class Invoice < ::Representable::Decorator
-      include ::Representable::XML
-      # Tag name
+    class Invoice < Base
       self.representation_wrap = 'Finvoice'
 
       # Attributes
@@ -10,16 +8,11 @@ module RFinvoice
       property :xmlns_xsi, as: 'xmlns:xsi', attribute: true
       property :xsi_nonamespace, as: 'xsi:noNamespaceSchemaLocation', attribute: true
 
-      # Nodes
-      ::RFinvoice::Invoice::STRINGS_0_35.each do |key|
-        property key.underscore.to_sym, as: key.to_sym
-      end
+      properties ::RFinvoice::Invoice::STRINGS_0_35
 
-      ::RFinvoice::Invoice::STRINGS_0_512.each do |key|
-        property key.underscore.to_sym, as: key.to_sym
-      end
+      properties ::RFinvoice::Invoice::STRINGS_0_512
 
-      ['MessageTransmissionDetails', 'SellerPartyDetails'].each do |klass|
+      %w(MessageTransmissionDetails SellerPartyDetails SellerCommunicationDetails SellerInformationDetails).each do |klass|
         property klass.underscore, decorator: "RFinvoice::Decorator::#{klass}".constantize
       end
     end

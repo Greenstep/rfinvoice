@@ -2,13 +2,12 @@ module RFinvoice
   module Coercion
     class NMToken < ::Virtus::Attribute
       include ::RFinvoice::Coercion::Base
-      include ::RFinvoice::Coercion::Limiting
-      include ::RFinvoice::Coercion::Patterning
-      PATTERN = /\A*\z/
+      include ::RFinvoice::Coercion::Helper::Limit
+      include ::RFinvoice::Coercion::Helper::Pattern
       # XML NameChar pattern http://www.w3.org/TR/2000/WD-xml-2e-20000814#NT-NameChar
       # Regexp from http://www.regular-expressions.info/shorthand.html
       PATTERN = /
-        \A            # Start of line
+        \A                # Start of line
         [
           \-\.:_          # Supported special symbols
           0-9             # Numeric character
@@ -27,7 +26,7 @@ module RFinvoice
           \uF900-\uFDCF
           \uFDF0-\uFFFD
         ]*
-        \z            # End of line
+        \z                # End of line
       /x
       strict true
 

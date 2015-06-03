@@ -1,17 +1,14 @@
+require 'rfinvoice/decorator/seller_postal_address_details'
 module RFinvoice
   module Decorator
     class SellerPartyDetails < Base
-      ::RFinvoice::SellerPartyDetails::STRINGS_0_35.each do |key|
-        property key.underscore.to_sym, as: key
-      end
+      collections %w(SellerOrganisationName SellerOrganisationDepartment)
 
-      ::RFinvoice::SellerPartyDetails::STRINGS_0_512.each do |key|
-        property key.underscore.to_sym, as: key
-      end
+      properties ::RFinvoice::SellerPartyDetails::STRINGS_0_35
+      properties ::RFinvoice::SellerPartyDetails::STRINGS_0_512
 
       property :seller_code, decorator: ::RFinvoice::Decorator::PartyIdentifier, as: 'SellerCode'
-
-      collections %w(SellerOrganisationName SellerOrganisationDepartment)
+      property :seller_postal_address_details, decorator: ::RFinvoice::Decorator::SellerPostalAddressDetails
     end
   end
 end

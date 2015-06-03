@@ -2,7 +2,7 @@ module RFinvoice
   module Coercion
     class String < ::Virtus::Attribute
       include ::RFinvoice::Coercion::Base
-      include ::RFinvoice::Coercion::Limiting
+      include ::RFinvoice::Coercion::Helper::Limit
       strict true
 
       def coerce(value)

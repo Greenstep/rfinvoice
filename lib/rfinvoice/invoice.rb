@@ -1,6 +1,9 @@
+require 'rfinvoice/invoice/date'
 require 'rfinvoice/invoice/party_identifier'
 require 'rfinvoice/invoice/seller_party_details'
+require 'rfinvoice/invoice/seller_communication_details'
 require 'rfinvoice/invoice/message_transmission_details'
+require 'rfinvoice/invoice/seller_information_details'
 
 module RFinvoice
   class Invoice < Model
@@ -40,14 +43,13 @@ module RFinvoice
     #
     # Childs
     #
-    # SellerPartyDetails
     attribute :seller_party_details, ::RFinvoice::SellerPartyDetails,
               required: true, default: ->(_instance, _attribute) { ::RFinvoice::SellerPartyDetails.new }
 
     attribute :seller_contact_person_function, ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
     attribute :seller_contact_person_department, ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
-    # MessageTransmissionDetails
-    attribute :message_transmission_details, ::RFinvoice::MessageTransmissionDetails, required: false
+
+    init_child_objects %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails)
 
     def to_xml
       decorator.to_xml

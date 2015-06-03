@@ -24,4 +24,10 @@ RSpec.describe ::RFinvoice::Invoice do
                         of_type(::RFinvoice::SellerPartyDetails).with_default(default_party_details) }
   it { is_expected.to have_attribute(:seller_contact_person_function).of_type(::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35]).with_required(false) }
   it { is_expected.to have_attribute(:seller_contact_person_department).of_type(::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35]).with_required(false) }
+  it { is_expected.to have_attribute(:seller_communication_details).
+                        of_type(::RFinvoice::SellerCommunicationDetails).with_required(false) }
+  it { is_expected.to have_attribute(:message_transmission_details).
+                        of_type(::RFinvoice::MessageTransmissionDetails).with_required(false) }
+  it { is_expected.to have_attribute(:seller_information_details).
+                        of_type(::RFinvoice::SellerInformationDetails).with_required(false) }
 end

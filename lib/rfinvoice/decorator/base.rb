@@ -2,6 +2,7 @@ module RFinvoice
   module Decorator
     class Base < ::Representable::Decorator
       include ::Representable::XML
+
       def self.inherited(subclass)
         subclass.representation_wrap = subclass.name.demodulize
       end
@@ -10,6 +11,12 @@ module RFinvoice
         def collections(array)
           array.each do |key|
             collection key.underscore.to_sym, as: key
+          end
+        end
+
+        def properties(array)
+          array.each do |key|
+            property key.underscore.to_sym, as: key
           end
         end
       end

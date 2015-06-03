@@ -5,11 +5,11 @@ gemspec
 
 group :test do
   # additional testing libs
-  gem 'shoulda'
   gem 'rspec', '>= 3.0.0'
   gem 'simplecov', '>= 0.10.0', require: false
   gem 'coveralls', require: false
   gem 'rspec_virtus', github: 'simonoff/rspec-virtus'
+  gem 'ffaker'
 end
 
 group :local_development do

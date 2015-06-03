@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'logger'
 require 'active_support/core_ext/string/inflections'
+require 'active_support/core_ext/class/attribute'
 require 'virtus'
 require 'representable'
 require 'representable/xml'
