@@ -1,3 +1,5 @@
+require 'rfinvoice/invoice/seller_postal_address_details'
+
 module RFinvoice
   class SellerPartyDetails < Model
     STRINGS_0_35 = %w(SellerPartyIdentifier SellerOrganisationTaxCode )
@@ -9,5 +11,6 @@ module RFinvoice
     attribute :seller_code, ::RFinvoice::PartyIdentifier, required: false
     attribute :seller_organisation_name, ::RFinvoice::Type::Array1_1000[::RFinvoice::Type::String2_70], required: true
     attribute :seller_organisation_department, ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
+    attribute :seller_postal_address_details, ::RFinvoice::SellerPostalAddressDetails, required: false
   end
 end

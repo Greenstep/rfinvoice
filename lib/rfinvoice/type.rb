@@ -1,5 +1,7 @@
 require 'rfinvoice/coercion/base'
 require 'rfinvoice/coercion/limiting'
+require 'rfinvoice/coercion/patterning'
 require 'rfinvoice/type/string'
+require 'rfinvoice/type/nmtoken'
 require 'rfinvoice/type/identifier'
 require 'rfinvoice/type/array'

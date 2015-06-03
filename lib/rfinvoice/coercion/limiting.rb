@@ -1,8 +1,7 @@
 module RFinvoice
   module Coercion
     module Limiting
-      def coerce(value)
-        return unless value
+      def coerce_for_limit(value)
         if self.class.const_defined?(:LIMIT)
           limit_value(value)
         else
@@ -24,19 +23,19 @@ module RFinvoice
         if value.length.between?(min, max)
           value
         else
-          return_nil_or_raise_for
+          return_nil_or_raise_for_limit
         end
       end
 
       def limit_value_exact(value)
         if value.length != self.class::LIMIT
-          return_nil_or_raise_for
+          return_nil_or_raise_for_limit
         else
           value
         end
       end
 
-      def return_nil_or_raise_for
+      def return_nil_or_raise_for_limit
         if ::RFinvoice.configuration.raise_on_broken_value
           fail ::RFinvoice::Error::BrokenValueFormat, "#{name} must be #{primitive}(#{self.class::LIMIT})"
         else

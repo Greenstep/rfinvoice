@@ -5,6 +5,11 @@ module RFinvoice
       include ::RFinvoice::Coercion::Limiting
       strict true
 
+      def coerce(value)
+        return unless value
+        coerce_for_limit(value)
+      end
+
       def value_coerced?(value)
         value.is_a?(::Array)
       end

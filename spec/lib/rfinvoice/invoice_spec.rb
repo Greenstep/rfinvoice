@@ -22,4 +22,6 @@ RSpec.describe ::RFinvoice::Invoice do
 
   it { is_expected.to have_attribute(:seller_party_details).
                         of_type(::RFinvoice::SellerPartyDetails).with_default(default_party_details) }
+  it { is_expected.to have_attribute(:seller_contact_person_function).of_type(::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35]).with_required(false) }
+  it { is_expected.to have_attribute(:seller_contact_person_department).of_type(::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35]).with_required(false) }
 end
