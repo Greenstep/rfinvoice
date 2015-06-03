@@ -1,6 +1,6 @@
 # RFinvoice 
 
-[![Build Status](https://travis-ci.org/Greenstep/rfinvoice.svg)](https://travis-ci.org/Greenstep/rfinvoice)[![Code Climate](https://codeclimate.com/github/Greenstep/rfinvoice/badges/gpa.svg)](https://codeclimate.com/github/Greenstep/rfinvoice)
+[![Build Status](https://travis-ci.org/Greenstep/rfinvoice.svg)](https://travis-ci.org/Greenstep/rfinvoice)[![Code Climate](https://codeclimate.com/github/Greenstep/rfinvoice/badges/gpa.svg)](https://codeclimate.com/github/Greenstep/rfinvoice)[![Coverage Status](https://coveralls.io/repos/Greenstep/rfinvoice/badge.svg)](https://coveralls.io/r/Greenstep/rfinvoice)
 
 Finvoice e-invoice generation library.
 

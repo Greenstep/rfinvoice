@@ -1,7 +1,11 @@
 require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
+require 'coveralls/rake/task'
 
+# RSpec
 RSpec::Core::RakeTask.new(:spec)
+# Coveralls
+Coveralls::RakeTask.new
 
 # rubocop
 require 'rubocop/rake_task'
@@ -16,5 +20,6 @@ Reek::Rake::Task.new do |t|
 end
 
 default_tasks = [:spec, :rubocop, :reek]
+default_tasks << 'coveralls:push' if ENV['TRAVIS']
 
 task default: default_tasks
