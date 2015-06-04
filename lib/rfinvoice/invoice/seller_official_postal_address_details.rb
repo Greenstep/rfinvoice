@@ -1,10 +1,7 @@
-require 'rfinvoice/invoice/seller_account_details'
-
 module RFinvoice
   class SellerOfficialPostalAddressDetails < Model
-    init_strings_2_35 %w(SellerOfficialStreetName SellerOfficialTownName SellerOfficialPostCodeIdentifier), true
-    init_strings_0_35 %w(CountryName)
-    init_nmtokens_2 %w(CountryCode)
-    init_child_objects %w(SellerAccountDetails)
+    add_string_simple_properties '2_35', %w(SellerOfficialStreetName SellerOfficialTownName SellerOfficialPostCodeIdentifier), required: true
+    add_string_simple_properties '0_35', %w(CountryName)
+    add_nmtoken_simple_properties '2', %w(CountryCode)
   end
 end

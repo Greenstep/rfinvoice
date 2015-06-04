@@ -1,4 +1,5 @@
 require 'simplecov'
-require 'rfinvoice'
-require 'rspec_virtus'
 require 'ffaker'
+require 'rspec_virtus'
+require 'rspec_representable'
+require 'rfinvoice'

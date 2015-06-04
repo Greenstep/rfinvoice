@@ -1,5 +1,10 @@
 module RFinvoice
   class Model
+    class_attribute :simple_properties, :complex_properties, :simple_collections, :complex_collections
+    self.simple_properties  = []
+    self.complex_properties = []
+    self.simple_collections = []
+    self.complex_collections = []
     include ::Virtus.model(strict: true)
 
     def decorator
@@ -7,49 +12,60 @@ module RFinvoice
     end
 
     class << self
-      def init_strings(type, array, required)
+      def add_simple_properties(klass, array, options)
+        self.simple_properties += array
+        array.each do |key|
+          attribute key.underscore, klass, options
+        end
+      end
+
+      def add_string_simple_properties(type, array, options = {})
         klass = "RFinvoice::Type::String#{type}".constantize
-        array.each do |key|
-          attribute key.underscore, klass, required: required
-        end
+        add_simple_properties(klass, array, options)
       end
 
-      def init_nmtokens(type, array, required)
+      def add_nmtoken_simple_properties(type, array, options = {})
         klass = "RFinvoice::Type::NMToken#{type}".constantize
+        add_simple_properties(klass, array, options)
+      end
+
+      def init_dates(array, options = {})
         array.each do |key|
-          attribute key.underscore, klass, required: required
+          attribute key.underscore, ::RFinvoice::Date, options
         end
       end
 
-      def init_dates(array, required = false)
+      def add_complex_properties(array, options = {})
+        self.complex_properties += array
         array.each do |key|
-          attribute key.underscore, ::RFinvoice::Date, required: required
+          attribute key.underscore, "RFinvoice::#{key}".constantize, options
         end
       end
 
-      def init_strings_0_35(array, required = false)
-        init_strings('0_35', array, required)
-      end
-
-      def init_strings_0_70(array, required = false)
-        init_strings('0_70', array, required)
-      end
-
-      def init_strings_2_35(array, required = false)
-        init_strings('2_35', array, required)
-      end
-
-      def init_strings_0_512(array, required = false)
-        init_strings('0_512', array, required)
-      end
-
-      def init_nmtokens_2(array, required = false)
-        init_nmtokens('2', array, required)
-      end
-
-      def init_child_objects(array, required = false)
+      def add_complex_properties_with_type(array, klass, options = {})
+        klass_name = klass.name.demodulize
         array.each do |key|
-          attribute key.underscore, "RFinvoice::#{key}".constantize, required: required
+          self.complex_properties += [{ klass: klass_name, key: key }]
+          attribute key.underscore, klass, options
+        end
+      end
+
+      def add_simple_collections(array, klass, options = {})
+        self.simple_collections += array
+        array.each do |key|
+          attribute key.underscore, klass, options
+        end
+      end
+
+      def add_complex_collection(array, klass, options = {})
+        klass_name = if klass.is_a?(::Array)
+                      klass.first.name.demodulize
+                     else
+                      klass.name.demodulize
+                     end
+        array.each do |key|
+          self.complex_collections += [{ klass: klass_name, key: key }]
+          attribute key.underscore, klass, options
         end
       end
     end

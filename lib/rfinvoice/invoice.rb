@@ -7,49 +7,26 @@ require 'rfinvoice/invoice/seller_information_details'
 
 module RFinvoice
   class Invoice < Model
-    STRINGS_0_35 = [
-      'SellerOrganisationUnitNumber'.freeze,
-      'SellerSiteCode'.freeze,
-      'SellerContactPersonName'.freeze,
-      'InvoiceRecipientOrganisationUnitNumber'.freeze,
-      'InvoiceRecipientSiteCode'.freeze,
-      'InvoiceRecipientContactPersonName'.freeze,
-      'BuyerOrganisationUnitNumber'.freeze,
-      'BuyerSiteCode'.freeze,
-      'BuyerContactPersonName'.freeze,
-      'DeliveryOrganisationUnitNumber'.freeze,
-      'DeliverySiteCode'.freeze,
-      'DeliveryContactPersonName'.freeze,
-      'LayOutIdentifier'.freeze,
-      'InvoiceSegmentIdentifier'.freeze
-    ]
+    attribute :version, ::String, default: '2.01'
+    attribute :xmlns_xsi, ::String, default: 'http://www.w3.org/2001/XMLSchema-instance'
+    attribute :xsi_nonamespace, ::String, default: 'Finvoice2.01.xsd'
 
-    STRINGS_0_512 = [
-      'VirtualBankBarcode'.freeze,
-      'InvoiceUrlNameText'.freeze,
-      'InvoiceUrlText'.freeze,
-      'StorageUrlText'.freeze,
-      'ControlStampText'.freeze,
-      'AcceptanceStampText'.freeze
-    ]
-
-    attribute :version, ::String, default: '2.01'.freeze
-    attribute :xmlns_xsi, ::String, default: 'http://www.w3.org/2001/XMLSchema-instance'.freeze
-    attribute :xsi_nonamespace, ::String, default: 'Finvoice2.01.xsd'.freeze
-
-    init_strings_0_35(STRINGS_0_35)
-    init_strings_0_512(STRINGS_0_512)
+    add_string_simple_properties '0_35', %w(SellerOrganisationUnitNumber SellerSiteCode SellerContactPersonName InvoiceRecipientOrganisationUnitNumber), required: false
+    add_string_simple_properties '0_35', %w(InvoiceRecipientSiteCode InvoiceRecipientContactPersonName BuyerOrganisationUnitNumber BuyerSiteCode), required: false
+    add_string_simple_properties '0_35', %w(BuyerContactPersonName DeliveryOrganisationUnitNumber DeliverySiteCode DeliveryContactPersonName), required: false
+    add_string_simple_properties '0_35', %w(LayOutIdentifier InvoiceSegmentIdentifier), required: false
+    add_string_simple_properties '0_512', %w(VirtualBankBarcode InvoiceUrlNameText InvoiceUrlText StorageUrlText ControlStampText AcceptanceStampText), required: false
 
     #
     # Childs
     #
-    attribute :seller_party_details, ::RFinvoice::SellerPartyDetails,
-              required: true, default: ->(_instance, _attribute) { ::RFinvoice::SellerPartyDetails.new }
-
-    attribute :seller_contact_person_function, ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
-    attribute :seller_contact_person_department, ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
-
-    init_child_objects %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails)
+    add_complex_properties %w(SellerPartyDetails), required: true, default: ->(_instance, _attribute) { ::RFinvoice::SellerPartyDetails.new }
+    add_simple_collections [*%w(SellerContactPersonFunction SellerContactPersonDepartment),
+                            *%w(InvoiceRecipientContactPersonFunction InvoiceRecipientContactPersonDepartment),
+                            *%w(BuyerContactPersonFunction BuyerContactPersonDepartment),
+                            *%w(DeliveryContactPersonFunction DeliveryContactPersonDepartment)],
+                           ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
+    add_complex_properties %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails), required: false
 
     def to_xml
       decorator.to_xml

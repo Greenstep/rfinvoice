@@ -8,7 +8,7 @@ module RFinvoice
 
     GENERIC_NMTOKEN_TYPES = [
       [0, 14], [0, 35], [0, 4], [0, 512],
-      [1, 34], [2, 35], [8, 11], 2
+      [1, 34], [2, 35], [8, 11], 2, 3
     ].each do |definition|
       limit, klass_name = if definition.is_a?(::Array)
                             min, max = definition

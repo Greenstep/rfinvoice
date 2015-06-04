@@ -8,5 +8,5 @@ RSpec.describe ::RFinvoice::MessageTransmissionDetails do
       message_details: { message_identifier: 'RFinvoice', message_time_stamp: '12-12-2014 12:12' }
     )
   }
-  it { is_expected.to have_attribute(:message_sender_details).of_type(::RFinvoice::MessageSenderDetails).with_required(true) }
+  it { is_expected.to have_virtus_attribute(:message_sender_details).of_type(::RFinvoice::MessageSenderDetails).with_required(true) }
 end

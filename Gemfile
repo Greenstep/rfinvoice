@@ -8,7 +8,9 @@ group :test do
   gem 'rspec', '>= 3.0.0'
   gem 'simplecov', '>= 0.10.0', require: false
   gem 'coveralls', require: false
-  gem 'rspec_virtus', github: 'simonoff/rspec-virtus'
+  #gem 'rspec_virtus', github: 'simonoff/rspec-virtus'
+  gem 'rspec_virtus', path: '/Users/devil/Works/Ruby/rspec-virtus'
+  gem 'rspec_representable', path: '/Users/devil/Works/Ruby/rspec_representable'
   gem 'ffaker'
 end
 

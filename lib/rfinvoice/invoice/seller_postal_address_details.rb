@@ -1,11 +1,8 @@
 module RFinvoice
   class SellerPostalAddressDetails < Model
-    STRINGS_2_35 = %w(SellerTownName SellerPostCodeIdentifier)
-    STRINGS_0_35 = %w(CountryName SellerPostOfficeBoxIdentifier SellerOrganisationUnitNumber SellerSiteCode SellerContactPersonName)
-    attribute :seller_street_name, ::RFinvoice::Type::Array1_3[::RFinvoice::Type::String2_35], required: true
-    attribute :country_code, ::RFinvoice::Type::NMToken2, required: false
-
-    init_strings_2_35(STRINGS_2_35, true)
-    init_strings_0_35(STRINGS_0_35)
+    add_string_simple_properties '2_35', %w(SellerTownName SellerPostCodeIdentifier), required: true
+    add_string_simple_properties '0_35', %w(CountryName SellerPostOfficeBoxIdentifier SellerOrganisationUnitNumber SellerSiteCode SellerContactPersonName), required: false
+    add_nmtoken_simple_properties '2', %w(CountryCode), required: false
+    add_simple_collections %w(SellerStreetName), ::RFinvoice::Type::Array1_3[::RFinvoice::Type::String2_35], required: true
   end
 end
