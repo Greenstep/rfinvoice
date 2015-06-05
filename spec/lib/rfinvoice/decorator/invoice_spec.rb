@@ -15,22 +15,12 @@ RSpec.describe ::RFinvoice::Decorator::Invoice do
   it { is_expected.to have_representable_property(:xmlns_xsi).as('xmlns:xsi').with_attribute }
   it { is_expected.to have_representable_property(:xsi_nonamespace).as('xsi:noNamespaceSchemaLocation').with_attribute }
 
-  %w(SellerOrganisationUnitNumber SellerSiteCode SellerContactPersonName InvoiceRecipientOrganisationUnitNumber).each do |key|
-    it { is_expected.to have_representable_property(key.underscore).as(key) }
-  end
-  %w(InvoiceRecipientSiteCode InvoiceRecipientContactPersonName BuyerOrganisationUnitNumber BuyerSiteCode).each do |key|
-    it { is_expected.to have_representable_property(key.underscore).as(key) }
-  end
-  %w(BuyerContactPersonName DeliveryOrganisationUnitNumber DeliverySiteCode DeliveryContactPersonName).each do |key|
-    it { is_expected.to have_representable_property(key.underscore).as(key) }
-  end
-  %w(LayOutIdentifier InvoiceSegmentIdentifier VirtualBankBarcode InvoiceUrlNameText InvoiceUrlText StorageUrlText ControlStampText AcceptanceStampText).each do |key|
-    it { is_expected.to have_representable_property(key.underscore).as(key) }
-  end
-  %w(SellerContactPersonFunction SellerContactPersonDepartment InvoiceRecipientContactPersonFunction InvoiceRecipientContactPersonDepartment BuyerContactPersonFunction BuyerContactPersonDepartment DeliveryContactPersonFunction DeliveryContactPersonDepartment).each do |key|
-    it { is_expected.to have_representable_collection(key.underscore).as(key) }
-  end
-  %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails SellerPartyDetails InvoiceSenderPartyDetails).each do |key|
-    it { is_expected.to have_representable_property(key.underscore).as(key).extends(::RFinvoice::Decorator.const_get(key)) }
-  end
+  it_should_behave_like 'a simple properties', %w(SellerOrganisationUnitNumber SellerSiteCode SellerContactPersonName InvoiceRecipientOrganisationUnitNumber)
+  it_should_behave_like 'a simple properties', %w(InvoiceRecipientSiteCode InvoiceRecipientContactPersonName BuyerOrganisationUnitNumber BuyerSiteCode)
+  it_should_behave_like 'a simple properties', %w(BuyerContactPersonName DeliveryOrganisationUnitNumber DeliverySiteCode DeliveryContactPersonName)
+  it_should_behave_like 'a simple properties', %w(LayOutIdentifier InvoiceSegmentIdentifier VirtualBankBarcode InvoiceUrlNameText InvoiceUrlText StorageUrlText)
+  it_should_behave_like 'a simple properties', %w(ControlStampText AcceptanceStampText OriginalInvoiceFormat)
+  it_should_behave_like 'a simple collections', %w(DeliveryContactPersonFunction DeliveryContactPersonDepartment SellerContactPersonFunction SellerContactPersonDepartment )
+  it_should_behave_like 'a simple collections', %w(InvoiceRecipientContactPersonDepartment BuyerContactPersonFunction BuyerContactPersonDepartment InvoiceRecipientContactPersonFunction)
+  it_should_behave_like 'a decorated properties', %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails SellerPartyDetails InvoiceSenderPartyDetails)
 end

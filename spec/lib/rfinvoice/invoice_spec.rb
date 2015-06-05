@@ -14,6 +14,7 @@ RSpec.describe ::RFinvoice::Invoice do
   it_should_behave_like 'a typed attributes', %w(SellerOrganisationUnitNumber SellerSiteCode SellerContactPersonName InvoiceRecipientOrganisationUnitNumber), 'String0_35', false
   it_should_behave_like 'a typed attributes', %w(InvoiceRecipientSiteCode InvoiceRecipientContactPersonName BuyerOrganisationUnitNumber BuyerSiteCode BuyerContactPersonName), 'String0_35', false
   it_should_behave_like 'a typed attributes', %w(DeliveryOrganisationUnitNumber DeliverySiteCode DeliveryContactPersonName LayOutIdentifier InvoiceSegmentIdentifier), 'String0_35', false
+  it_should_behave_like 'a typed attributes', %w(OriginalInvoiceFormat), 'String0_35', false
   it_should_behave_like 'a typed attributes', %w(VirtualBankBarcode InvoiceUrlNameText InvoiceUrlText StorageUrlText ControlStampText AcceptanceStampText), 'String0_512', false
 
   it { is_expected.to have_virtus_attribute(:version).of_type(::String).with_default('2.01') }

@@ -6,7 +6,6 @@
   <xs:element name="Finvoice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="InvoiceSenderPartyDetails" type="InvoiceSenderPartyDetailsType" minOccurs="0"/>
         <xs:element name="InvoiceRecipientPartyDetails" type="InvoiceRecipientPartyDetailsType" minOccurs="0"/>
         <xs:element name="InvoiceRecipientLanguageCode" type="LanguageCodeType" minOccurs="0"/>
         <xs:element name="InvoiceRecipientCommunicationDetails" type="InvoiceRecipientCommunicationDetailsType"
@@ -24,7 +23,6 @@
         <xs:element name="InvoiceRow" type="InvoiceRowType" maxOccurs="unbounded"/>
         <xs:element name="SpecificationDetails" type="SpecificationDetailsType" minOccurs="0"/>
         <xs:element name="EpiDetails" type="EpiDetailsType"/>
-        <xs:element name="OriginalInvoiceFormat" type="genericStringType0_35" minOccurs="0"/>
         <xs:element name="AttachmentMessageDetails" type="AttachmentMessageDetailsType" minOccurs="0"/>
       </xs:sequence>
     </xs:complexType>

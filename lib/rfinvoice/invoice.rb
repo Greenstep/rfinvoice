@@ -17,7 +17,7 @@ module RFinvoice
     add_string_simple_properties '0_35', %w(SellerOrganisationUnitNumber SellerSiteCode SellerContactPersonName InvoiceRecipientOrganisationUnitNumber), required: false
     add_string_simple_properties '0_35', %w(InvoiceRecipientSiteCode InvoiceRecipientContactPersonName BuyerOrganisationUnitNumber BuyerSiteCode), required: false
     add_string_simple_properties '0_35', %w(BuyerContactPersonName DeliveryOrganisationUnitNumber DeliverySiteCode DeliveryContactPersonName), required: false
-    add_string_simple_properties '0_35', %w(LayOutIdentifier InvoiceSegmentIdentifier), required: false
+    add_string_simple_properties '0_35', %w(LayOutIdentifier InvoiceSegmentIdentifier OriginalInvoiceFormat), required: false
     add_string_simple_properties '0_512', %w(VirtualBankBarcode InvoiceUrlNameText InvoiceUrlText StorageUrlText ControlStampText AcceptanceStampText), required: false
 
     #
