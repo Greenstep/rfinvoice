@@ -24,21 +24,21 @@ module RFinvoice
           if value.length.between?(min, max)
             value
           else
-            return_nil_or_raise_for_limit
+            return_nil_or_raise_for_limit(value)
           end
         end
 
         def limit_value_exact(value)
           if value.length != self.class::LIMIT
-            return_nil_or_raise_for_limit
+            return_nil_or_raise_for_limit(value)
           else
             value
           end
         end
 
-        def return_nil_or_raise_for_limit
+        def return_nil_or_raise_for_limit(value)
           if ::RFinvoice.configuration.raise_on_broken_value
-            fail ::RFinvoice::Error::BrokenValueFormat, "#{name} must be #{primitive}(#{self.class::LIMIT})"
+            fail ::RFinvoice::Error::BrokenValueFormat, "#{name} must be #{primitive}(#{self.class::LIMIT}) but got #{value.length}"
           else
             ::RFinvoice.logger.info 'Value have broken format'
             nil

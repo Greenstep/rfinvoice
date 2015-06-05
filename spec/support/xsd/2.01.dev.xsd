@@ -568,14 +568,6 @@
       <xs:element name="SubInvoiceRow" type="SubInvoiceRowType" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="InvoiceSenderPartyDetailsType">
-    <xs:sequence>
-      <xs:element name="InvoiceSenderPartyIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="InvoiceSenderOrganisationName" type="genericStringType2_35" maxOccurs="unbounded"/>
-      <xs:element name="InvoiceSenderOrganisationTaxCode" type="genericNMtokenType0_35" minOccurs="0"/>
-      <xs:element name="InvoiceSenderCode" type="PartyIdentifierType" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
   <xs:simpleType name="InvoiceTypeCodePattern">
     <xs:restriction base="xs:NMTOKEN">
       <xs:pattern value="(REQ|QUO|ORD|ORC|INV|DEV|TES|INF|PRI|DEN|SEI)[0-9]{2}"/>

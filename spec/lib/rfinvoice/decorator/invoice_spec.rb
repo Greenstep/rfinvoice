@@ -30,7 +30,7 @@ RSpec.describe ::RFinvoice::Decorator::Invoice do
   %w(SellerContactPersonFunction SellerContactPersonDepartment InvoiceRecipientContactPersonFunction InvoiceRecipientContactPersonDepartment BuyerContactPersonFunction BuyerContactPersonDepartment DeliveryContactPersonFunction DeliveryContactPersonDepartment).each do |key|
     it { is_expected.to have_representable_collection(key.underscore).as(key) }
   end
-  %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails SellerPartyDetails).each do |key|
+  %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails SellerPartyDetails InvoiceSenderPartyDetails).each do |key|
     it { is_expected.to have_representable_property(key.underscore).as(key).extends(::RFinvoice::Decorator.const_get(key)) }
   end
 end
