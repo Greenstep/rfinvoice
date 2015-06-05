@@ -1,6 +1,5 @@
 module RFinvoice
   class MessageReceiverDetails < Model
-    attribute :to_identifier, ::RFinvoice::Type::String2_35, require: true
-    attribute :to_intermediator, ::RFinvoice::Type::String2_35, require: true
+    add_string_simple_properties '2_35', %w(ToIdentifier ToIntermediator), required: true
   end
 end

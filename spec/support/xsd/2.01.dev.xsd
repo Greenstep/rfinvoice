@@ -29,36 +29,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:complexType name="MessageTransmissionDetailsType">
-    <xs:sequence>
-      <xs:element name="MessageSenderDetails">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="FromIdentifier" type="genericStringType2_35"/>
-            <xs:element name="FromIntermediator" type="genericStringType2_35"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="MessageReceiverDetails">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="ToIdentifier" type="genericStringType2_35"/>
-            <xs:element name="ToIntermediator" type="genericStringType2_35"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="MessageDetails">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="MessageIdentifier" type="genericStringType2_48"/>
-            <xs:element name="MessageTimeStamp" type="genericStringType2_35"/>
-            <xs:element name="RefToMessageIdentifier" type="genericStringType0_48" minOccurs="0"/>
-            <xs:element name="ImplementationCode" type="genericStringType0_4" minOccurs="0"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="AnyPartyDetailsType">
     <xs:sequence>
       <xs:element name="AnyPartyText" type="anypartytexttype0_35"/>
@@ -427,12 +397,6 @@
       <xs:element name="InvoiceRecipientEmailaddressIdentifier" type="genericStringType0_70" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="InvoiceRecipientDetailsType">
-    <xs:sequence>
-      <xs:element name="InvoiceRecipientAddress" type="genericStringType1_35"/>
-      <xs:element name="InvoiceRecipientIntermediatorAddress" type="genericNMtokenType8_11"/>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="InvoiceRecipientPartyDetailsType">
     <xs:sequence>
       <xs:element name="InvoiceRecipientPartyIdentifier" type="genericStringType0_35" minOccurs="0"/>
@@ -733,39 +697,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="SellerAccountDetailsType">
-    <xs:sequence>
-      <xs:element name="SellerAccountID" type="SellerAccountIDType"/>
-      <xs:element name="SellerBic" type="SellerBicType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="SellerInformationDetailsType">
-    <xs:sequence>
-      <xs:element name="SellerOfficialPostalAddressDetails" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="SellerOfficialStreetName" type="genericStringType2_35"/>
-            <xs:element name="SellerOfficialTownName" type="genericStringType2_35"/>
-            <xs:element name="SellerOfficialPostCodeIdentifier" type="genericStringType2_35"/>
-            <xs:element name="CountryCode" type="CountryCodeType" minOccurs="0"/>
-            <xs:element name="CountryName" type="genericStringType0_35" minOccurs="0"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="SellerHomeTownName" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SellerVatRegistrationText" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SellerVatRegistrationDate" type="date" minOccurs="0"/>
-      <xs:element name="SellerTaxRegistrationText" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SellerPhoneNumber" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SellerFaxNumber" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SellerCommonEmailaddressIdentifier" type="genericStringType0_70" minOccurs="0"/>
-      <xs:element name="SellerWebaddressIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SellerFreeText" type="genericStringType0_512" minOccurs="0"/>
-      <xs:element name="SellerAccountDetails" type="SellerAccountDetailsType" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="InvoiceRecipientDetails" type="InvoiceRecipientDetailsType" minOccurs="0"
-                  maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="SellerPostalAddressDetailsType">

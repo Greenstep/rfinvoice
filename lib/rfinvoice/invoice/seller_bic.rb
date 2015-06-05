@@ -1,6 +1,4 @@
-module RFInvoice
-  class SellerBic < Model
-    attribute :value, ::RFinvoice::Type::NMToken8_11, required: true
-    attribute :identification_scheme_name, ::RFinvoice::Type::BicScheme, required: true
+module RFinvoice
+  class SellerBic < AccountBic
   end
 end

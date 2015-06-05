@@ -1,6 +1,4 @@
 module RFinvoice
-  class SellerAccountID < Model
-    attribute :value, ::RFinvoice::Type::NMToken2_35, required: true
-    attribute :identification_scheme_name, ::RFinvoice::Type::AccountNumberScheme, required: true
+  class SellerAccountID < AccountID
   end
 end

@@ -15,6 +15,9 @@ module RFinvoice
         if model_klass.respond_to?(:simple_collections)
           subclass.collections model_klass.simple_collections
         end
+        if model_klass.respond_to?(:complex_collections)
+          subclass.decorated_collections model_klass.complex_collections
+        end
       end
 
       class << self
@@ -37,9 +40,21 @@ module RFinvoice
                          else
                            [key, key]
                          end
-            property key.underscore.to_sym, as: key, decorator: ::RFinvoice::Decorator.const_get(klass)
+            property key.underscore.to_sym, as: key, decorator: "RFinvoice::Decorator::#{klass}".constantize
           end
         end
+
+        def decorated_collections(array)
+          array.each do |key|
+            key, klass = if key.is_a?(::Hash)
+                           [key[:key], key[:klass]]
+                         else
+                           [key, key]
+                         end
+            collection key.underscore.to_sym, as: key, decorator: "RFinvoice::Decorator::#{klass}".constantize
+          end
+        end
+
       end
     end
   end

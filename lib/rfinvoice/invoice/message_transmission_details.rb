@@ -4,8 +4,6 @@ require 'rfinvoice/invoice/message_details'
 
 module RFinvoice
   class MessageTransmissionDetails < Model
-    attribute :message_sender_details, ::RFinvoice::MessageSenderDetails, require: true
-    attribute :message_receiver_details, ::RFinvoice::MessageReceiverDetails, require: true
-    attribute :message_details, ::RFinvoice::MessageDetails, require: true
+    add_complex_properties %w(MessageSenderDetails MessageReceiverDetails MessageDetails), required: true
   end
 end

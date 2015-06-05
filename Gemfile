@@ -12,6 +12,7 @@ group :test do
   gem 'rspec_virtus', path: '/Users/devil/Works/Ruby/rspec-virtus'
   gem 'rspec_representable', path: '/Users/devil/Works/Ruby/rspec_representable'
   gem 'ffaker'
+  gem 'fabrication'
 end
 
 group :local_development do

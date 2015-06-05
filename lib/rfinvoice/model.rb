@@ -68,6 +68,13 @@ module RFinvoice
           attribute key.underscore, klass, options
         end
       end
+
+      def add_complex_collection_array(array, options = {})
+        array.each do |key|
+          self.complex_collections += [{ klass: key, key: key }]
+          attribute key.underscore, ::Array["RFinvoice::#{key}".constantize], options
+        end
+      end
     end
   end
 end

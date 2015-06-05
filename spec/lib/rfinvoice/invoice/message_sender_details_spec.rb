@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe ::RFinvoice::MessageSenderDetails do
-  subject { described_class.new(from_identifier: 'Foo', from_intermediator: 'Bar') }
-  it { is_expected.to have_virtus_attribute(:from_identifier).of_type(::RFinvoice::Type::String2_35).with_required(true) }
-  it { is_expected.to have_virtus_attribute(:from_intermediator).of_type(::RFinvoice::Type::String2_35).with_required(true) }
+  subject { Fabricate.build(:message_sender_details) }
+  it_should_behave_like 'a typed attributes', %w(FromIdentifier FromIntermediator), 'String2_35', true
 end
