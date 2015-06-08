@@ -6,8 +6,6 @@
   <xs:element name="Finvoice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="InvoiceRecipientCommunicationDetails" type="InvoiceRecipientCommunicationDetailsType"
-                    minOccurs="0"/>
         <xs:element name="BuyerPartyDetails" type="BuyerPartyDetailsType"/>
         <xs:element name="BuyerCommunicationDetails" type="BuyerCommunicationDetailsType" minOccurs="0"/>
         <xs:element name="DeliveryPartyDetails" type="DeliveryPartyDetailsType" minOccurs="0"/>
@@ -385,12 +383,6 @@
       <xs:element name="InvoiceVatFreeText" type="genericStringType0_70" minOccurs="0"/>
       <xs:element name="PaymentTermsDetails" type="PaymentTermsDetailsType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="DiscountDetails" type="DiscountDetailsType" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="InvoiceRecipientCommunicationDetailsType">
-    <xs:sequence>
-      <xs:element name="InvoiceRecipientPhoneNumberIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="InvoiceRecipientEmailaddressIdentifier" type="genericStringType0_70" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="InvoiceRowType">
