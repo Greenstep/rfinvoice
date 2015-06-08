@@ -6,7 +6,6 @@
   <xs:element name="Finvoice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="DeliveryPartyDetails" type="DeliveryPartyDetailsType" minOccurs="0"/>
         <xs:element name="DeliveryCommunicationDetails" type="DeliveryCommunicationDetailsType" minOccurs="0"/>
         <xs:element name="DeliveryDetails" type="DeliveryDetailsType" minOccurs="0"/>
         <xs:element name="AnyPartyDetails" type="AnyPartyDetailsType" minOccurs="0" maxOccurs="unbounded"/>
@@ -148,30 +147,10 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="DeliveryPartyDetailsType">
-    <xs:sequence>
-      <xs:element name="DeliveryPartyIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="DeliveryOrganisationName" type="genericStringType2_35" maxOccurs="unbounded"/>
-      <xs:element name="DeliveryOrganisationDepartment" type="genericStringType0_35" minOccurs="0" maxOccurs="2"/>
-      <xs:element name="DeliveryOrganisationTaxCode" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="DeliveryCode" type="PartyIdentifierType" minOccurs="0"/>
-      <xs:element name="DeliveryPostalAddressDetails" type="DeliveryPostalAddressDetailsType"/>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="DeliveryPeriodDetailsType">
     <xs:sequence>
       <xs:element name="StartDate" type="date"/>
       <xs:element name="EndDate" type="date"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="DeliveryPostalAddressDetailsType">
-    <xs:sequence>
-      <xs:element name="DeliveryStreetName" type="genericStringType2_35" maxOccurs="3"/>
-      <xs:element name="DeliveryTownName" type="genericStringType2_35"/>
-      <xs:element name="DeliveryPostCodeIdentifier" type="genericStringType2_35"/>
-      <xs:element name="CountryCode" type="CountryCodeType" minOccurs="0"/>
-      <xs:element name="CountryName" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="DeliveryPostofficeBoxIdentifier" type="genericStringType0_35" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="EpiAccountIDType">
