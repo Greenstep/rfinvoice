@@ -23,5 +23,5 @@ RSpec.describe ::RFinvoice::Decorator::Invoice do
   it_should_behave_like 'a simple collections', %w(DeliveryContactPersonFunction DeliveryContactPersonDepartment SellerContactPersonFunction SellerContactPersonDepartment )
   it_should_behave_like 'a simple collections', %w(InvoiceRecipientContactPersonDepartment BuyerContactPersonFunction BuyerContactPersonDepartment InvoiceRecipientContactPersonFunction)
   it_should_behave_like 'a decorated properties', %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails SellerPartyDetails InvoiceSenderPartyDetails)
-  it_should_behave_like 'a decorated properties', %w(InvoiceRecipientCommunicationDetails)
+  it_should_behave_like 'a decorated properties', %w(InvoiceRecipientCommunicationDetails BuyerPartyDetails)
 end

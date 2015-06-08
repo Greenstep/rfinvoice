@@ -6,7 +6,6 @@
   <xs:element name="Finvoice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="BuyerPartyDetails" type="BuyerPartyDetailsType"/>
         <xs:element name="BuyerCommunicationDetails" type="BuyerCommunicationDetailsType" minOccurs="0"/>
         <xs:element name="DeliveryPartyDetails" type="DeliveryPartyDetailsType" minOccurs="0"/>
         <xs:element name="DeliveryCommunicationDetails" type="DeliveryCommunicationDetailsType" minOccurs="0"/>
@@ -78,26 +77,6 @@
     <xs:sequence>
       <xs:element name="BuyerPhoneNumberIdentifier" type="genericStringType0_35" minOccurs="0"/>
       <xs:element name="BuyerEmailaddressIdentifier" type="genericStringType0_70" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="BuyerPartyDetailsType">
-    <xs:sequence>
-      <xs:element name="BuyerPartyIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="BuyerOrganisationName" type="genericStringType2_70" maxOccurs="unbounded"/>
-      <xs:element name="BuyerOrganisationDepartment" type="genericStringType0_35" minOccurs="0" maxOccurs="2"/>
-      <xs:element name="BuyerOrganisationTaxCode" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="BuyerCode" type="PartyIdentifierType" minOccurs="0"/>
-      <xs:element name="BuyerPostalAddressDetails" type="BuyerPostalAddressDetailsType" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="BuyerPostalAddressDetailsType">
-    <xs:sequence>
-      <xs:element name="BuyerStreetName" type="genericStringType2_35" maxOccurs="3"/>
-      <xs:element name="BuyerTownName" type="genericStringType2_35"/>
-      <xs:element name="BuyerPostCodeIdentifier" type="genericStringType2_35"/>
-      <xs:element name="CountryCode" type="CountryCodeType" minOccurs="0"/>
-      <xs:element name="CountryName" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="BuyerPostOfficeBoxIdentifier" type="genericStringType0_35" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="DeliveryCommunicationDetailsType">
