@@ -8,7 +8,6 @@ module RFinvoice
         subclass.property :value, content: true
         subclass.property :identification_scheme_name, as: 'IdentificationSchemeName', attribute: true
       end
-
     end
   end
 end

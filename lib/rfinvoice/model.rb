@@ -59,9 +59,9 @@ module RFinvoice
 
       def add_complex_collection(array, klass, options = {})
         klass_name = if klass.is_a?(::Array)
-                      klass.first.name.demodulize
+                       klass.first.name.demodulize
                      else
-                      klass.name.demodulize
+                       klass.name.demodulize
                      end
         array.each do |key|
           self.complex_collections += [{ klass: klass_name, key: key }]

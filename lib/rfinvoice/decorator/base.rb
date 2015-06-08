@@ -54,7 +54,6 @@ module RFinvoice
             collection key.underscore.to_sym, as: key, decorator: "RFinvoice::Decorator::#{klass}".constantize
           end
         end
-
       end
     end
   end

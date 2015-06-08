@@ -2,6 +2,10 @@ require 'rfinvoice/invoice/date'
 require 'rfinvoice/invoice/account_id'
 require 'rfinvoice/invoice/account_bic'
 require 'rfinvoice/invoice/party_identifier'
+require 'rfinvoice/invoice/start_date'
+require 'rfinvoice/invoice/end_date'
+require 'rfinvoice/invoice/quantity14'
+require 'rfinvoice/invoice/quantity70'
 require 'rfinvoice/invoice/seller_party_details'
 require 'rfinvoice/invoice/seller_communication_details'
 require 'rfinvoice/invoice/message_transmission_details'
@@ -13,6 +17,7 @@ require 'rfinvoice/invoice/buyer_party_details'
 require 'rfinvoice/invoice/buyer_communication_details'
 require 'rfinvoice/invoice/delivery_party_details'
 require 'rfinvoice/invoice/delivery_communication_details'
+require 'rfinvoice/invoice/delivery_details'
 
 module RFinvoice
   class Invoice < Model
@@ -38,7 +43,7 @@ module RFinvoice
                            ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
     add_complex_properties %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails InvoiceRecipientCommunicationDetails), required: false
     add_complex_properties %w(InvoiceRecipientPartyDetails InvoiceSenderPartyDetails BuyerPartyDetails BuyerCommunicationDetails), required: false
-    add_complex_properties %w(DeliveryPartyDetails DeliveryCommunicationDetails), required: false
+    add_complex_properties %w(DeliveryPartyDetails DeliveryCommunicationDetails DeliveryDetails), required: false
 
     def to_xml
       decorator.to_xml
