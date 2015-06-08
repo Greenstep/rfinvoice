@@ -6,7 +6,6 @@
   <xs:element name="Finvoice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="DeliveryCommunicationDetails" type="DeliveryCommunicationDetailsType" minOccurs="0"/>
         <xs:element name="DeliveryDetails" type="DeliveryDetailsType" minOccurs="0"/>
         <xs:element name="AnyPartyDetails" type="AnyPartyDetailsType" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element name="InvoiceDetails" type="InvoiceDetailsType"/>
@@ -69,12 +68,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="DeliveryCommunicationDetailsType">
-    <xs:sequence>
-      <xs:element name="DeliveryPhoneNumberIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="DeliveryEmailaddressIdentifier" type="genericStringType0_70" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="DeliveryDetailsType">
