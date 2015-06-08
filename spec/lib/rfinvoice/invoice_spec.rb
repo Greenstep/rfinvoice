@@ -27,5 +27,5 @@ RSpec.describe ::RFinvoice::Invoice do
   it_should_behave_like 'a typed array attributes', %w(SellerContactPersonFunction SellerContactPersonDepartment BuyerContactPersonFunction), ::RFinvoice::Type::Array0_2, 'String0_35', false
   it_should_behave_like 'a typed array attributes', %w(BuyerContactPersonDepartment DeliveryContactPersonFunction DeliveryContactPersonDepartment), ::RFinvoice::Type::Array0_2, 'String0_35', false
   it_should_behave_like 'a complex attributes', %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails InvoiceSenderPartyDetails), false
-  it_should_behave_like 'a complex attributes', %w(InvoiceRecipientPartyDetails), false
+  it_should_behave_like 'a complex attributes', %w(InvoiceRecipientPartyDetails BuyerCommunicationDetails), false
 end
