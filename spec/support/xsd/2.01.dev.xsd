@@ -6,8 +6,6 @@
   <xs:element name="Finvoice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="InvoiceRecipientPartyDetails" type="InvoiceRecipientPartyDetailsType" minOccurs="0"/>
-        <xs:element name="InvoiceRecipientLanguageCode" type="LanguageCodeType" minOccurs="0"/>
         <xs:element name="InvoiceRecipientCommunicationDetails" type="InvoiceRecipientCommunicationDetailsType"
                     minOccurs="0"/>
         <xs:element name="BuyerPartyDetails" type="BuyerPartyDetailsType"/>
@@ -393,27 +391,6 @@
     <xs:sequence>
       <xs:element name="InvoiceRecipientPhoneNumberIdentifier" type="genericStringType0_35" minOccurs="0"/>
       <xs:element name="InvoiceRecipientEmailaddressIdentifier" type="genericStringType0_70" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="InvoiceRecipientPartyDetailsType">
-    <xs:sequence>
-      <xs:element name="InvoiceRecipientPartyIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="InvoiceRecipientOrganisationName" type="genericStringType2_35" maxOccurs="unbounded"/>
-      <xs:element name="InvoiceRecipientDepartment" type="genericStringType0_35" minOccurs="0" maxOccurs="2"/>
-      <xs:element name="InvoiceRecipientOrganisationTaxCode" type="genericNMtokenType0_35" minOccurs="0"/>
-      <xs:element name="InvoiceRecipientCode" type="PartyIdentifierType" minOccurs="0"/>
-      <xs:element name="InvoiceRecipientPostalAddressDetails" type="InvoiceRecipientPostalAddressDetailsType"
-                  minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="InvoiceRecipientPostalAddressDetailsType">
-    <xs:sequence>
-      <xs:element name="InvoiceRecipientStreetName" type="genericStringType2_35" maxOccurs="3"/>
-      <xs:element name="InvoiceRecipientTownName" type="genericStringType2_35"/>
-      <xs:element name="InvoiceRecipientPostCodeIdentifier" type="genericStringType2_35"/>
-      <xs:element name="CountryCode" type="CountryCodeType" minOccurs="0"/>
-      <xs:element name="CountryName" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="InvoiceRecipientPostOfficeBoxIdentifier" type="genericStringType0_35" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="InvoiceRowType">
@@ -1109,11 +1086,6 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="CountryCodeType">
-    <xs:restriction base="xs:NMTOKEN">
-      <xs:length value="2"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="LanguageCodeType">
     <xs:restriction base="xs:NMTOKEN">
       <xs:length value="2"/>
     </xs:restriction>

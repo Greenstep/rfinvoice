@@ -7,6 +7,7 @@ require 'rfinvoice/invoice/seller_communication_details'
 require 'rfinvoice/invoice/message_transmission_details'
 require 'rfinvoice/invoice/seller_information_details'
 require 'rfinvoice/invoice/invoice_sender_party_details'
+require 'rfinvoice/invoice/invoice_recipient_party_details'
 
 module RFinvoice
   class Invoice < Model
@@ -19,6 +20,7 @@ module RFinvoice
     add_string_simple_properties '0_35', %w(BuyerContactPersonName DeliveryOrganisationUnitNumber DeliverySiteCode DeliveryContactPersonName), required: false
     add_string_simple_properties '0_35', %w(LayOutIdentifier InvoiceSegmentIdentifier OriginalInvoiceFormat), required: false
     add_string_simple_properties '0_512', %w(VirtualBankBarcode InvoiceUrlNameText InvoiceUrlText StorageUrlText ControlStampText AcceptanceStampText), required: false
+    add_nmtoken_simple_properties '2', %w(InvoiceRecipientLanguageCode), required: false
 
     #
     # Childs
@@ -30,6 +32,7 @@ module RFinvoice
                             *%w(DeliveryContactPersonFunction DeliveryContactPersonDepartment)],
                            ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
     add_complex_properties %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails), required: false
+    add_complex_properties %w(InvoiceRecipientPartyDetails), required: false
     add_complex_properties %w(InvoiceSenderPartyDetails), required: false
 
     def to_xml

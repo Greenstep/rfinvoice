@@ -19,7 +19,7 @@ RSpec.describe ::RFinvoice::Decorator::Invoice do
   it_should_behave_like 'a simple properties', %w(InvoiceRecipientSiteCode InvoiceRecipientContactPersonName BuyerOrganisationUnitNumber BuyerSiteCode)
   it_should_behave_like 'a simple properties', %w(BuyerContactPersonName DeliveryOrganisationUnitNumber DeliverySiteCode DeliveryContactPersonName)
   it_should_behave_like 'a simple properties', %w(LayOutIdentifier InvoiceSegmentIdentifier VirtualBankBarcode InvoiceUrlNameText InvoiceUrlText StorageUrlText)
-  it_should_behave_like 'a simple properties', %w(ControlStampText AcceptanceStampText OriginalInvoiceFormat)
+  it_should_behave_like 'a simple properties', %w(ControlStampText AcceptanceStampText OriginalInvoiceFormat InvoiceRecipientLanguageCode)
   it_should_behave_like 'a simple collections', %w(DeliveryContactPersonFunction DeliveryContactPersonDepartment SellerContactPersonFunction SellerContactPersonDepartment )
   it_should_behave_like 'a simple collections', %w(InvoiceRecipientContactPersonDepartment BuyerContactPersonFunction BuyerContactPersonDepartment InvoiceRecipientContactPersonFunction)
   it_should_behave_like 'a decorated properties', %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails SellerPartyDetails InvoiceSenderPartyDetails)
