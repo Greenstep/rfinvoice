@@ -19,9 +19,8 @@ module RFinvoice
         end
 
         def limit_value_range(value)
-          min = self.class::LIMIT.begin
-          max = self.class::LIMIT.end
-          if value.length.between?(min, max)
+          limit = self.class::LIMIT
+          if value.length.between?(limit.begin, limit.end)
             value
           else
             return_nil_or_raise_for_limit(value)

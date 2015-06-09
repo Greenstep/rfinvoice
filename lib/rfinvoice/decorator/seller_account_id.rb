@@ -1,1 +1,6 @@
-class RFinvoice::Decorator::SellerAccountID < ::RFinvoice::Decorator::AccountID; end
+module RFinvoice
+  module Decorator
+    class SellerAccountID < AccountID
+    end
+  end
+end

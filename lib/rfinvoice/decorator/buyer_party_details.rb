@@ -3,7 +3,7 @@ require 'rfinvoice/decorator/buyer_postal_address_details'
 
 module RFinvoice
   module Decorator
-    class BuyerPartyDetails < Base
+    class BuyerPartyDetails < BaseDecorator
     end
   end
 end

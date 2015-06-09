@@ -1,6 +1,6 @@
 module RFinvoice
   module Decorator
-    class MessageSenderDetails < Base
+    class MessageSenderDetails < BaseDecorator
     end
   end
 end

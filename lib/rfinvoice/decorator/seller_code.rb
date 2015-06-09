@@ -1,6 +1,6 @@
 module RFinvoice
   module Decorator
-    class MessageDetails < BaseDecorator
+    class SellerCode < PartyIdentifier
     end
   end
 end

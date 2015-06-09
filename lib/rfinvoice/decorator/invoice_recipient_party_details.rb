@@ -3,7 +3,7 @@ require 'rfinvoice/decorator/invoice_recipient_code'
 
 module RFinvoice
   module Decorator
-    class InvoiceRecipientPartyDetails < Base
+    class InvoiceRecipientPartyDetails < BaseDecorator
     end
   end
 end

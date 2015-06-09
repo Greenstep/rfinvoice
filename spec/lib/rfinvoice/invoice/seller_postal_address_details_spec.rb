@@ -1,19 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe ::RFinvoice::SellerPostalAddressDetails do
-  subject {
-    described_class.new(
-      seller_town_name: 'Cupertino',
-      seller_post_code_identifier: '95014',
-      seller_street_name: ['Infinite Loop 1']
-    )
-  }
-  %w(SellerTownName SellerPostCodeIdentifier).each do |key|
-    it { is_expected.to have_virtus_attribute(key.underscore).of_type(::RFinvoice::Type::String2_35).with_required(true) }
-  end
-  %w(CountryName SellerPostOfficeBoxIdentifier SellerOrganisationUnitNumber SellerSiteCode SellerContactPersonName).each do |key|
-    it { is_expected.to have_virtus_attribute(key.underscore).of_type(::RFinvoice::Type::String0_35).with_required(false) }
-  end
-  it { is_expected.to have_virtus_attribute(:seller_street_name).of_type(::RFinvoice::Type::Array1_3[::RFinvoice::Type::String2_35]).with_required(true) }
-  it { is_expected.to have_virtus_attribute(:country_code).of_type(::RFinvoice::Type::NMToken2).with_required(false) }
+  subject { Fabricate(:seller_postal_address_details) }
+  it_should_behave_like 'a typed attributes', %w(SellerTownName SellerPostCodeIdentifier), 'String2_35', true
+  it_should_behave_like 'a typed attributes', %w(SellerPostOfficeBoxIdentifier CountryName), 'String0_35', false
+  it_should_behave_like 'a typed attributes', %w(CountryCode), 'NMToken2', false
+  it_should_behave_like 'a typed array attributes', %w(SellerStreetName), ::RFinvoice::Type::Array1_3, 'String2_35', true
 end

@@ -1,12 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe ::RFinvoice::Decorator::SellerPostalAddressDetails do
-  let(:document) { ::RFinvoice::SellerPostalAddressDetails.new(seller_town_name:            'Cupertino',
-                                                               seller_post_code_identifier: '95014',
-                                                               seller_street_name:          ['Infinite Loop 1']) }
+  let(:document) { Fabricate(:seller_postal_address_details) }
   subject { described_class.new(document) }
-  %w(SellerTownName SellerPostCodeIdentifier CountryName CountryCode SellerPostOfficeBoxIdentifier SellerOrganisationUnitNumber SellerSiteCode SellerContactPersonName).each do |key|
-    it { is_expected.to have_representable_property(key.underscore).as(key) }
-  end
-  it { is_expected.to have_representable_collection(:seller_street_name).as('SellerStreetName') }
+  it_should_behave_like 'a simple properties', %w(SellerTownName SellerPostCodeIdentifier CountryCode CountryName SellerPostOfficeBoxIdentifier)
+  it_should_behave_like 'a simple collections', %w(SellerStreetName)
 end

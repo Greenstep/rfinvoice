@@ -1,10 +1,7 @@
 module RFinvoice
   class Model
-    class_attribute :simple_properties, :complex_properties, :simple_collections, :complex_collections
-    self.simple_properties  = []
-    self.complex_properties = []
-    self.simple_collections = []
-    self.complex_collections = []
+    class_attribute :xml_properties
+    self.xml_properties = []
     include ::Virtus.model(strict: true)
 
     def decorator
@@ -13,7 +10,7 @@ module RFinvoice
 
     class << self
       def add_simple_properties(klass, array, options)
-        self.simple_properties += array
+        self.xml_properties += array.map { |key| { key: key, type: :property } }
         array.each do |key|
           attribute key.underscore, klass, options
         end
@@ -29,14 +26,8 @@ module RFinvoice
         add_simple_properties(klass, array, options)
       end
 
-      def init_dates(array, options = {})
-        array.each do |key|
-          attribute key.underscore, ::RFinvoice::Date, options
-        end
-      end
-
       def add_complex_properties(array, options = {})
-        self.complex_properties += array
+        self.xml_properties += array.map { |key| { klass: key, key: key, type: :complex_property } }
         array.each do |key|
           attribute key.underscore, "RFinvoice::#{key}".constantize, options
         end
@@ -45,13 +36,13 @@ module RFinvoice
       def add_complex_properties_with_type(array, klass, options = {})
         klass_name = klass.name.demodulize
         array.each do |key|
-          self.complex_properties += [{ klass: klass_name, key: key }]
+          self.xml_properties += [{ klass: klass_name, key: key, type: :complex_property }]
           attribute key.underscore, klass, options
         end
       end
 
       def add_simple_collections(array, klass, options = {})
-        self.simple_collections += array
+        self.xml_properties += array.map { |key| { key: key, type: :collection } }
         array.each do |key|
           attribute key.underscore, klass, options
         end
@@ -64,14 +55,14 @@ module RFinvoice
                        klass.name.demodulize
                      end
         array.each do |key|
-          self.complex_collections += [{ klass: klass_name, key: key }]
+          self.xml_properties += [{ klass: klass_name, key: key, type: :complex_collection }]
           attribute key.underscore, klass, options
         end
       end
 
       def add_complex_collection_array(array, options = {})
         array.each do |key|
-          self.complex_collections += [{ klass: key, key: key }]
+          self.xml_properties += [{ klass: key, key: key, type: :complex_collection }]
           attribute key.underscore, ::Array["RFinvoice::#{key}".constantize], options
         end
       end

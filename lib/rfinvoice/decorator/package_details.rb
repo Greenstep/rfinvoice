@@ -8,7 +8,7 @@ require 'rfinvoice/decorator/transport_carriage_quantity'
 
 module RFinvoice
   module Decorator
-    class PackageDetails < Base
+    class PackageDetails < BaseDecorator
     end
   end
 end

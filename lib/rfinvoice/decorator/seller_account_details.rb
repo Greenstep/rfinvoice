@@ -1,4 +1,9 @@
 require 'rfinvoice/decorator/seller_account_id'
 require 'rfinvoice/decorator/seller_bic'
 
-class RFinvoice::Decorator::SellerAccountDetails < ::RFinvoice::Decorator::Base; end
+module RFinvoice
+  module Decorator
+    class SellerAccountDetails < BaseDecorator
+    end
+  end
+end

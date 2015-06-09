@@ -5,7 +5,7 @@ require 'rfinvoice/decorator/seller_vat_registration_date'
 
 module RFinvoice
   module Decorator
-    class SellerInformationDetails < Base
+    class SellerInformationDetails < BaseDecorator
     end
   end
 end

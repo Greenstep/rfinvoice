@@ -6,7 +6,7 @@ require 'rfinvoice/decorator/package_details'
 
 module RFinvoice
   module Decorator
-    class DeliveryDetails < Base
+    class DeliveryDetails < BaseDecorator
     end
   end
 end

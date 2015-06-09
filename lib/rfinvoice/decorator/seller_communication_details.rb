@@ -1,7 +1,6 @@
 module RFinvoice
   module Decorator
-    class SellerCommunicationDetails < Base
-      properties %w(SellerPhoneNumberIdentifier SellerEmailaddressIdentifier)
+    class SellerCommunicationDetails < BaseDecorator
     end
   end
 end

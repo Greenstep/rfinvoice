@@ -1,6 +1,6 @@
 module RFinvoice
   module Decorator
-    class InvoiceRecipientPostalAddressDetails < Base
+    class InvoiceRecipientPostalAddressDetails < BaseDecorator
     end
   end
 end

@@ -1,6 +1,6 @@
 module RFinvoice
   module Decorator
-    class DeliveryPeriodDetails < Base
+    class DeliveryPeriodDetails < BaseDecorator
     end
   end
 end

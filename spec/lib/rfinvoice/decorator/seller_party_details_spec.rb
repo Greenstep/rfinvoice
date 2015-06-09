@@ -1,15 +1,10 @@
 require 'spec_helper'
 
 RSpec.describe ::RFinvoice::Decorator::SellerPartyDetails do
-  let(:document) { ::RFinvoice::SellerPartyDetails.new(seller_organisation_name: ['Test Organization']) }
+  let(:document) { Fabricate.build(:seller_party_details) }
   subject { described_class.new(document) }
-  it { is_expected.to have_representable_collection(:seller_organisation_name)
-                        .as('SellerOrganisationName') }
-  it { is_expected.to have_representable_collection(:seller_organisation_department)
-                        .as('SellerOrganisationDepartment') }
-  it { is_expected.to have_representable_property(:seller_code).as('SellerCode').extends(::RFinvoice::Decorator::PartyIdentifier) }
-  it { is_expected.to have_representable_property(:seller_postal_address_details).as('SellerPostalAddressDetails').extends(::RFinvoice::Decorator::SellerPostalAddressDetails) }
-  %w(SellerPartyIdentifier SellerOrganisationTaxCode SellerPartyIdentifierUrlText SellerOrganisationTaxCodeUrlText).each do |key|
-    it { is_expected.to have_representable_property(key.underscore).as(key) }
-  end
+  it_should_behave_like 'a decorated properties', %w(SellerCode SellerPostalAddressDetails)
+  it_should_behave_like 'a simple properties', %w(SellerPartyIdentifier SellerOrganisationTaxCode)
+  it_should_behave_like 'a simple properties', %w(SellerPartyIdentifierUrlText SellerOrganisationTaxCodeUrlText)
+  it_should_behave_like 'a simple collections', %w(SellerOrganisationDepartment SellerOrganisationName)
 end

@@ -1,6 +1,6 @@
 module RFinvoice
   module Decorator
-    class Invoice < Base
+    class Invoice < BaseDecorator
       self.representation_wrap = 'Finvoice'
 
       # Attributes

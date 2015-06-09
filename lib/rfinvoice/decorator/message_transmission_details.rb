@@ -4,7 +4,7 @@ require 'rfinvoice/decorator/message_details'
 
 module RFinvoice
   module Decorator
-    class MessageTransmissionDetails < Base
+    class MessageTransmissionDetails < BaseDecorator
     end
   end
 end
