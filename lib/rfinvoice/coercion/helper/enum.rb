@@ -2,7 +2,7 @@ module RFinvoice
   module Coercion
     module Helper
       module Enum
-        def coerce_enum(value)
+        def coerce_for_enum(value)
           if self.class::ENUM.include?(value)
             value
           else

@@ -179,55 +179,6 @@
   </xs:simpleType>
   <xs:complexType name="InvoiceDetailsType">
     <xs:sequence>
-      <xs:element name="InvoiceTypeCode" type="InvoiceTypeCodeType"/>
-      <xs:element name="InvoiceTypeText" type="genericStringType1_35"/>
-      <xs:element name="OriginCode" type="OriginCodeType"/>
-      <xs:element name="OriginText" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="InvoiceNumber" type="genericStringType1_20"/>
-      <xs:element name="InvoiceDate" type="date"/>
-      <xs:element name="OriginalInvoiceNumber" type="genericStringType1_20" minOccurs="0"/>
-      <xs:element name="InvoicingPeriodStartDate" type="date" minOccurs="0"/>
-      <xs:element name="InvoicingPeriodEndDate" type="date" minOccurs="0"/>
-      <xs:element name="SellerReferenceIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SellerReferenceIdentifierUrlText" type="genericStringType0_512" minOccurs="0"/>
-      <xs:element name="BuyersSellerIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SellersBuyerIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="OrderIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="OrderIdentifierUrlText" type="genericStringType0_512" minOccurs="0"/>
-      <xs:element name="OrderDate" type="date" minOccurs="0"/>
-      <xs:element name="OrdererName" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SalesPersonName" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="OrderConfirmationIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="OrderConfirmationDate" type="date" minOccurs="0"/>
-      <xs:element name="AgreementIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="AgreementIdentifierUrlText" type="genericStringType0_512" minOccurs="0"/>
-      <xs:element name="AgreementTypeText" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="AgreementTypeCode" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="AgreementDate" type="date" minOccurs="0"/>
-      <xs:element name="NotificationIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="NotificationDate" type="date" minOccurs="0"/>
-      <xs:element name="RegistrationNumberIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="ControllerIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="ControllerName" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="ControlDate" type="date" minOccurs="0"/>
-      <xs:element name="BuyerReferenceIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="ProjectReferenceIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="DefinitionDetails" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="DefinitionHeaderText">
-              <xs:complexType>
-                <xs:simpleContent>
-                  <xs:extension base="genericStringType0_70">
-                    <xs:attribute name="DefinitionCode" type="genericTokenType1_20" use="optional"/>
-                  </xs:extension>
-                </xs:simpleContent>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="DefinitionValue" type="QuantityType0_70" minOccurs="0"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
       <xs:element name="InvoiceTotalVatExcludedAmount" type="amount" minOccurs="0"/>
       <xs:element name="InvoiceTotalVatAmount" type="amount" minOccurs="0"/>
       <xs:element name="InvoiceTotalVatIncludedAmount" type="amount"/>

@@ -2,6 +2,7 @@ module RFinvoice
   module Coercion
     class NMToken < ::Virtus::Attribute
       include ::RFinvoice::Coercion::Base
+      include ::RFinvoice::Coercion::Helper::NormalizeString
       include ::RFinvoice::Coercion::Helper::Limit
       include ::RFinvoice::Coercion::Helper::Pattern
       # XML NameChar pattern http://www.w3.org/TR/2000/WD-xml-2e-20000814#NT-NameChar
@@ -32,6 +33,7 @@ module RFinvoice
 
       def coerce(value)
         return unless value
+        value = normalize_string(value)
         value = coerce_for_limit(value)
         value = coerce_for_pattern(value)
         value

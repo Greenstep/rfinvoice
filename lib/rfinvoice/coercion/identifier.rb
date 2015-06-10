@@ -9,7 +9,7 @@ module RFinvoice
 
       def coerce(value)
         return unless value
-        coerce_enum(value)
+        coerce_for_enum(value)
       end
     end
   end

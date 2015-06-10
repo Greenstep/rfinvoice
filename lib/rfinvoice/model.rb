@@ -26,6 +26,11 @@ module RFinvoice
         add_simple_properties(klass, array, options)
       end
 
+      def add_token_simple_properties(type, array, options = {})
+        klass = "RFinvoice::Type::Token#{type}".constantize
+        add_simple_properties(klass, array, options)
+      end
+
       def add_complex_properties(array, options = {})
         self.xml_properties += array.map { |key| { klass: key, key: key, type: :complex_property } }
         array.each do |key|
