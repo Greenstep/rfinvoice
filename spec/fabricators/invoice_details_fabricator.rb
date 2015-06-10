@@ -34,4 +34,8 @@ Fabricator(:invoice_details, from: ::RFinvoice::InvoiceDetails) do |i|
   i.buyer_reference_identifier { ::SecureRandom.hex(16) }
   i.project_reference_identifier { ::SecureRandom.hex(16) }
   i.definition_details
+  i.invoice_total_vat_amount
+  i.invoice_total_vat_included_amount
+  i.invoice_total_vat_excluded_amount
+  i.invoice_total_roundoff_amount
 end

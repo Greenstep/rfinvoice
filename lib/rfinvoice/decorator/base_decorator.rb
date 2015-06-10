@@ -30,7 +30,7 @@ module RFinvoice
         def decorated_item(type, options)
           key = options[:key]
           klass = options[:klass]
-          self.__send__(type, key.underscore.to_sym, { as: key, decorator: "RFinvoice::Decorator::#{klass}".constantize })
+          __send__(type, key.underscore.to_sym, as: key, decorator: "RFinvoice::Decorator::#{klass}".constantize)
         end
       end
     end

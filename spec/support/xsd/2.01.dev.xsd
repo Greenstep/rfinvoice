@@ -179,9 +179,6 @@
   </xs:simpleType>
   <xs:complexType name="InvoiceDetailsType">
     <xs:sequence>
-      <xs:element name="InvoiceTotalVatExcludedAmount" type="amount" minOccurs="0"/>
-      <xs:element name="InvoiceTotalVatAmount" type="amount" minOccurs="0"/>
-      <xs:element name="InvoiceTotalVatIncludedAmount" type="amount"/>
       <xs:element name="InvoiceTotalRoundoffAmount" type="amount" minOccurs="0"/>
       <xs:element name="ExchangeRate" type="exchangeRate" minOccurs="0"/>
       <xs:element name="OtherCurrencyAmountVatExcludedAmount" type="amount" minOccurs="0"/>
@@ -817,11 +814,6 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:simpleType name="monetaryAmount">
-    <xs:restriction base="xs:token">
-      <xs:pattern value="-?[0-9]{1,15}(,[0-9]{2,5})?"/>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:complexType name="epiAmount">
     <xs:simpleContent>
       <xs:extension base="epiMonetaryAmount">
@@ -835,11 +827,6 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:simpleType name="epiMonetaryAmount">
-    <xs:restriction base="xs:token">
-      <xs:pattern value="-?[0-9]{1,15},[0-9]{2}"/>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:complexType name="unitAmount">
     <xs:simpleContent>
       <xs:extension base="unitAmountType">
@@ -854,11 +841,6 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:simpleType name="unitAmountType">
-    <xs:restriction base="xs:token">
-      <xs:pattern value="-?[0-9]{1,15}(,[0-9]{2,5})?"/>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="CountryCodeType">
     <xs:restriction base="xs:NMTOKEN">
       <xs:length value="2"/>

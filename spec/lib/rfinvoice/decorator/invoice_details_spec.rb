@@ -5,6 +5,8 @@ RSpec.describe ::RFinvoice::Decorator::InvoiceDetails do
   subject { described_class.new(document) }
   it_should_behave_like 'a decorated properties', %w(InvoiceTypeCode InvoiceDate InvoicingPeriodStartDate InvoicingPeriodEndDate)
   it_should_behave_like 'a decorated properties', %w(OrderDate OrderConfirmationDate AgreementDate NotificationDate ControlDate)
+  it_should_behave_like 'a decorated properties', %w(InvoiceTotalVatExcludedAmount InvoiceTotalVatAmount InvoiceTotalVatIncludedAmount)
+  it_should_behave_like 'a decorated properties', %w(InvoiceTotalRoundoffAmount)
   it_should_behave_like 'a simple properties', %w(InvoiceTypeText OriginCode OriginText InvoiceNumber OriginalInvoiceNumber)
   it_should_behave_like 'a simple properties', %w(SellerReferenceIdentifier SellerReferenceIdentifierUrlText)
   it_should_behave_like 'a simple properties', %w(BuyersSellerIdentifier SellersBuyerIdentifier OrderIdentifier)
@@ -14,5 +16,6 @@ RSpec.describe ::RFinvoice::Decorator::InvoiceDetails do
   it_should_behave_like 'a simple properties', %w(BuyerReferenceIdentifier ProjectReferenceIdentifier)
   it_should_behave_like 'a simple properties', %w()
   it_should_behave_like 'a simple collections', %w()
+
   it_should_behave_like 'a decorated collections', %w(DefinitionDetails)
 end
