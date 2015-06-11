@@ -21,6 +21,14 @@ module RFinvoice
         add_simple_properties(klass, array, options)
       end
 
+      def add_date_properties(array, options = {})
+        add_complex_properties_with_type(array, ::RFinvoice::Date, options)
+      end
+
+      def add_amount_properties(array, options = {})
+        add_complex_properties_with_type(array, ::RFinvoice::Amount, options)
+      end
+
       def add_nmtoken_simple_properties(type, array, options = {})
         klass = "RFinvoice::Type::NMToken#{type}".constantize
         add_simple_properties(klass, array, options)

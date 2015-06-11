@@ -17,6 +17,6 @@ Fabricator(:delivery_details, from: ::RFinvoice::DeliveryDetails) do
   terminal_address_text { ::FFaker::Lorem.words(10).join(' ') }
   shipment_party_details
   delivery_period_details
-  delivery_date
-  transport_information_date
+  delivery_date { Fabricate(:date) }
+  transport_information_date { Fabricate(:date) }
 end

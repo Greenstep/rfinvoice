@@ -2,13 +2,15 @@ require 'spec_helper'
 
 RSpec.describe ::RFinvoice::InvoiceDetails do
   subject { Fabricate.build(:invoice_details) }
-  it_should_behave_like 'a complex attributes', %w(InvoiceTypeCode InvoiceDate InvoiceTotalVatIncludedAmount),  true
-  it_should_behave_like 'a complex attributes', %w(InvoicingPeriodStartDate InvoicingPeriodEndDate OrderDate OrderConfirmationDate),  false
-  it_should_behave_like 'a complex attributes', %w(AgreementDate NotificationDate ControlDate),  false
-  it_should_behave_like 'a complex attributes', %w(InvoiceTotalVatExcludedAmount InvoiceTotalVatAmount InvoiceTotalRoundoffAmount),  false
-  it_should_behave_like 'a complex attributes', %w(OtherCurrencyAmountVatExcludedAmount OtherCurrencyAmountVatIncludedAmount CreditLimitAmount),  false
-  it_should_behave_like 'a complex attributes', %w(OperationLimitAmount MonthlyAmount),  false
-  it_should_behave_like 'a complex attributes collection', %w(DefinitionDetails), ::Array, false
+  it_should_behave_like 'a typed attributes', %w(InvoiceDate), 'Date', true
+  it_should_behave_like 'a typed attributes', %w(InvoiceTotalVatIncludedAmount), 'Amount', true
+  it_should_behave_like 'a complex attributes', %w(InvoiceTypeCode),  true
+  it_should_behave_like 'a typed attributes', %w(InvoicingPeriodStartDate InvoicingPeriodEndDate OrderDate OrderConfirmationDate), 'Date', false
+  it_should_behave_like 'a typed attributes', %w(AgreementDate NotificationDate ControlDate), 'Date', false
+  it_should_behave_like 'a typed attributes', %w(InvoiceTotalVatExcludedAmount InvoiceTotalVatAmount InvoiceTotalRoundoffAmount), 'Amount', false
+  it_should_behave_like 'a typed attributes', %w(OtherCurrencyAmountVatExcludedAmount OtherCurrencyAmountVatIncludedAmount CreditLimitAmount), 'Amount', false
+  it_should_behave_like 'a typed attributes', %w(OperationLimitAmount MonthlyAmount), 'Amount', false
+  it_should_behave_like 'a complex attributes collection', %w(DefinitionDetails DiscountDetails PaymentTermsDetails), ::Array, false
   it_should_behave_like 'a typed attributes', %w(InvoiceTypeText), 'String1_35', true
   it_should_behave_like 'a typed attributes', %w(OriginCode), 'OriginCode', true
   it_should_behave_like 'a typed attributes', %w(CreditInterestPercent), 'Percentage', false

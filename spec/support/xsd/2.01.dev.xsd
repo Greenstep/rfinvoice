@@ -180,7 +180,6 @@
   <xs:complexType name="InvoiceDetailsType">
     <xs:sequence>
       <xs:element name="PaymentTermsDetails" type="PaymentTermsDetailsType" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="DiscountDetails" type="DiscountDetailsType" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="InvoiceRowType">
@@ -682,13 +681,6 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:complexType name="DiscountDetailsType">
-    <xs:sequence>
-      <xs:element name="FreeText" type="genericStringType1_70" minOccurs="0"/>
-      <xs:element name="Percent" type="percentage" minOccurs="0"/>
-      <xs:element name="Amount" type="amount" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="CustomsInfoType">
     <xs:sequence>
       <xs:element name="CNCode" type="genericStringType1_8" minOccurs="0"/>
@@ -725,96 +717,11 @@
       </xs:restriction>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:simpleType name="genericTokenType3">
-    <xs:restriction base="xs:token">
-      <xs:length value="3"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="genericTokenType0_14">
-    <xs:restriction base="xs:token">
-      <xs:minLength value="0"/>
-      <xs:maxLength value="14"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="genericTokenType1_20">
-    <xs:restriction base="xs:token">
-      <xs:minLength value="1"/>
-      <xs:maxLength value="20"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="genericTokenType0_35">
-    <xs:restriction base="xs:token">
-      <xs:minLength value="0"/>
-      <xs:maxLength value="35"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="genericTokenType2_35">
-    <xs:restriction base="xs:token">
-      <xs:minLength value="2"/>
-      <xs:maxLength value="35"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="genericTokenType0_70">
-    <xs:restriction base="xs:token">
-      <xs:minLength value="0"/>
-      <xs:maxLength value="70"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="percentage">
-    <xs:restriction base="xs:string">
-      <xs:pattern value="[1-9]?[0-9]{1,2}(,[0-9]{1,3})?"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="exchangeRate">
-    <xs:restriction base="xs:string">
-      <xs:pattern value="[0-9]{1,15}(,[0-9]{1,6})?"/>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="dateType">
     <xs:restriction base="xs:integer">
       <xs:pattern value="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="amount">
-    <xs:simpleContent>
-      <xs:extension base="monetaryAmount">
-        <xs:attribute name="AmountCurrencyIdentifier" use="required">
-          <xs:simpleType>
-            <xs:restriction base="xs:NMTOKEN">
-              <xs:length value="3"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:attribute>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:complexType name="epiAmount">
-    <xs:simpleContent>
-      <xs:extension base="epiMonetaryAmount">
-        <xs:attribute name="AmountCurrencyIdentifier" use="required">
-          <xs:simpleType>
-            <xs:restriction base="xs:NMTOKEN">
-              <xs:length value="3"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:attribute>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:complexType name="unitAmount">
-    <xs:simpleContent>
-      <xs:extension base="unitAmountType">
-        <xs:attribute name="AmountCurrencyIdentifier" use="required">
-          <xs:simpleType>
-            <xs:restriction base="xs:NMTOKEN">
-              <xs:length value="3"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:attribute>
-        <xs:attribute name="UnitPriceUnitCode" type="genericStringType0_14"/>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
   <xs:simpleType name="CountryCodeType">
     <xs:restriction base="xs:NMTOKEN">
       <xs:length value="2"/>

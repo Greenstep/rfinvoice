@@ -3,11 +3,12 @@ require 'spec_helper'
 RSpec.describe ::RFinvoice::Decorator::InvoiceDetails do
   let(:document) { Fabricate.build(:invoice_details) }
   subject { described_class.new(document) }
-  it_should_behave_like 'a decorated properties', %w(InvoiceTypeCode InvoiceDate InvoicingPeriodStartDate InvoicingPeriodEndDate)
-  it_should_behave_like 'a decorated properties', %w(OrderDate OrderConfirmationDate AgreementDate NotificationDate ControlDate)
-  it_should_behave_like 'a decorated properties', %w(InvoiceTotalVatExcludedAmount InvoiceTotalVatAmount InvoiceTotalVatIncludedAmount)
-  it_should_behave_like 'a decorated properties', %w(InvoiceTotalRoundoffAmount OtherCurrencyAmountVatExcludedAmount)
-  it_should_behave_like 'a decorated properties', %w(OtherCurrencyAmountVatIncludedAmount CreditLimitAmount OperationLimitAmount MonthlyAmount)
+  it_should_behave_like 'a decorated properties', %w(InvoiceTypeCode)
+  it_should_behave_like 'a modelized properties', %w(InvoiceDate InvoicingPeriodStartDate InvoicingPeriodEndDate), 'Date'
+  it_should_behave_like 'a modelized properties', %w(OrderDate OrderConfirmationDate AgreementDate NotificationDate ControlDate), 'Date'
+  it_should_behave_like 'a modelized properties', %w(InvoiceTotalVatExcludedAmount InvoiceTotalVatAmount InvoiceTotalVatIncludedAmount), 'Amount'
+  it_should_behave_like 'a modelized properties', %w(InvoiceTotalRoundoffAmount OtherCurrencyAmountVatExcludedAmount), 'Amount'
+  it_should_behave_like 'a modelized properties', %w(OtherCurrencyAmountVatIncludedAmount CreditLimitAmount OperationLimitAmount MonthlyAmount), 'Amount'
   it_should_behave_like 'a simple properties', %w(InvoiceTypeText OriginCode OriginText InvoiceNumber OriginalInvoiceNumber)
   it_should_behave_like 'a simple properties', %w(SellerReferenceIdentifier SellerReferenceIdentifierUrlText)
   it_should_behave_like 'a simple properties', %w(BuyersSellerIdentifier SellersBuyerIdentifier OrderIdentifier)
@@ -18,5 +19,5 @@ RSpec.describe ::RFinvoice::Decorator::InvoiceDetails do
   it_should_behave_like 'a simple properties', %w(ShortProposedAccountIdentifier NormalProposedAccountIdentifier)
   it_should_behave_like 'a simple properties', %w(ProposedAccountText AccountDimensionText SellerAccountText InvoiceVatFreeText)
   it_should_behave_like 'a simple collections', %w(InvoiceFreeText)
-  it_should_behave_like 'a decorated collections', %w(DefinitionDetails)
+  it_should_behave_like 'a decorated collections', %w(DefinitionDetails DiscountDetails PaymentTermsDetails)
 end

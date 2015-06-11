@@ -1,6 +1,6 @@
 module RFinvoice
   module Decorator
-    class VatSpecificationDetails < BaseDecorator
+    class PaymentTermsDetails < BaseDecorator
     end
   end
 end

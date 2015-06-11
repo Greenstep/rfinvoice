@@ -5,5 +5,6 @@ RSpec.describe ::RFinvoice::Decorator::SellerInformationDetails do
   subject { described_class.new(document) }
   it_should_behave_like 'a simple properties', %w(SellerHomeTownName SellerVatRegistrationText SellerTaxRegistrationText SellerPhoneNumber SellerFaxNumber SellerWebaddressIdentifier SellerCommonEmailaddressIdentifier SellerFreeText)
   it_should_behave_like 'a decorated collections', %w(SellerAccountDetails InvoiceRecipientDetails)
-  it_should_behave_like 'a decorated properties', %w(SellerOfficialPostalAddressDetails SellerVatRegistrationDate)
+  it_should_behave_like 'a modelized properties', %w(SellerVatRegistrationDate), 'Date'
+  it_should_behave_like 'a decorated properties', %w(SellerOfficialPostalAddressDetails)
 end

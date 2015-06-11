@@ -2,7 +2,8 @@ require 'spec_helper'
 
 RSpec.describe ::RFinvoice::DeliveryDetails do
   subject { Fabricate.build(:delivery_details) }
-  it_should_behave_like 'a complex attributes', %w(ShipmentPartyDetails DeliveryPeriodDetails DeliveryDate TransportInformationDate), false
+  it_should_behave_like 'a complex attributes', %w(ShipmentPartyDetails DeliveryPeriodDetails), false
+  it_should_behave_like 'a typed attributes', %w(DeliveryDate TransportInformationDate), 'Date', false
   it_should_behave_like 'a complex attributes', %w(PackageDetails), false
   it_should_behave_like 'a typed attributes', %w(WaybillIdentifier WaybillTypeCode ClearanceIdentifier DeliveryNoteIdentifier), 'String0_35', false
   it_should_behave_like 'a typed attributes', %w(DelivererIdentifier DelivererCountryName ModeOfTransportIdentifier), 'String0_35', false
