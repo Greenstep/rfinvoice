@@ -3,12 +3,8 @@ module RFinvoice
     module Helper
       module Pattern
         def coerce_for_pattern(value)
-          if (match = self.class::PATTERN.match(value))
-            if match[0].length == value.length
-              value
-            else
-              return_nil_or_raise_for_pattern
-            end
+          if self.class::PATTERN.match(value)
+            value
           else
             return_nil_or_raise_for_pattern
           end

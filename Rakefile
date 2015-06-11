@@ -20,6 +20,5 @@ Reek::Rake::Task.new do |t|
 end
 
 default_tasks = [:spec, :rubocop, :reek]
-default_tasks << 'coveralls:push' if ENV['TRAVIS']
 
 task default: default_tasks
