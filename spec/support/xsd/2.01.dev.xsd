@@ -179,23 +179,6 @@
   </xs:simpleType>
   <xs:complexType name="InvoiceDetailsType">
     <xs:sequence>
-      <xs:element name="InvoiceTotalRoundoffAmount" type="amount" minOccurs="0"/>
-      <xs:element name="ExchangeRate" type="exchangeRate" minOccurs="0"/>
-      <xs:element name="OtherCurrencyAmountVatExcludedAmount" type="amount" minOccurs="0"/>
-      <xs:element name="OtherCurrencyAmountVatIncludedAmount" type="amount" minOccurs="0"/>
-      <xs:element name="CreditLimitAmount" type="amount" minOccurs="0"/>
-      <xs:element name="CreditInterestPercent" type="percentage" minOccurs="0"/>
-      <xs:element name="OperationLimitAmount" type="amount" minOccurs="0"/>
-      <xs:element name="MonthlyAmount" type="amount" minOccurs="0"/>
-      <xs:element name="ShortProposedAccountIdentifier" type="genericNMtokenType0_4" minOccurs="0"/>
-      <xs:element name="NormalProposedAccountIdentifier" type="genericNMtokenType0_4" minOccurs="0"/>
-      <xs:element name="ProposedAccountText" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="AccountDimensionText" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SellerAccountText" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="VatSpecificationDetails" type="VatSpecificationDetailsType" minOccurs="0"
-                  maxOccurs="unbounded"/>
-      <xs:element name="InvoiceFreeText" type="genericStringType0_512" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="InvoiceVatFreeText" type="genericStringType0_70" minOccurs="0"/>
       <xs:element name="PaymentTermsDetails" type="PaymentTermsDetailsType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="DiscountDetails" type="DiscountDetailsType" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
@@ -681,15 +664,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="VatSpecificationDetailsType">
-    <xs:sequence>
-      <xs:element name="VatBaseAmount" type="amount" minOccurs="0"/>
-      <xs:element name="VatRatePercent" type="percentage" minOccurs="0"/>
-      <xs:element name="VatCode" type="genericStringType0_10" minOccurs="0"/>
-      <xs:element name="VatRateAmount" type="amount" minOccurs="0"/>
-      <xs:element name="VatFreeText" type="genericStringType0_70" minOccurs="0" maxOccurs="3"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="PartyIdentifierType">

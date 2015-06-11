@@ -38,4 +38,12 @@ Fabricator(:invoice_details, from: ::RFinvoice::InvoiceDetails) do |i|
   i.invoice_total_vat_included_amount
   i.invoice_total_vat_excluded_amount
   i.invoice_total_roundoff_amount
+  i.other_currency_amount_vat_excluded_amount
+  i.other_currency_amount_vat_included_amount
+  i.credit_limit_amount
+  i.operation_limit_amount
+  i.monthly_amount
+  i.short_proposed_account_identifier { ::SecureRandom.hex(2) }
+  i.normal_proposed_account_identifier { ::SecureRandom.hex(2) }
+  i.vat_specification_details { [Fabricate(:vat_specification_details)]  }
 end

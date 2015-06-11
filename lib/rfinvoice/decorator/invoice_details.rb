@@ -17,6 +17,7 @@ require 'rfinvoice/decorator/other_currency_amount_vat_excluded_amount'
 require 'rfinvoice/decorator/credit_limit_amount'
 require 'rfinvoice/decorator/operation_limit_amount'
 require 'rfinvoice/decorator/monthly_amount'
+require 'rfinvoice/decorator/vat_specification_details'
 
 module RFinvoice
   module Decorator
