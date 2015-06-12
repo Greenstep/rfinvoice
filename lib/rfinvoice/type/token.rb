@@ -9,12 +9,7 @@ module RFinvoice
     GENERIC_TOKEN_TYPES = [
       [0, 14], [1, 20], [0, 35], [2, 35], [0, 70], 3
     ].each do |definition|
-      limit, klass_name = if definition.is_a?(::Array)
-                            min, max = definition
-                            [(min..max), "Token#{min}_#{max}"]
-                          else
-                            [definition, "Token#{definition}"]
-                          end
+      limit, klass_name = limit_and_klass_for(definition, 'Token')
       const_set(klass_name, ::Axiom::Types::String.new)     # ::RFinvoice::Type::Token1_20 = ::Axiom::Types::String.new
       klass = ::Class.new(::RFinvoice::Coercion::Token)     # class ::RFinvoice::Coercion::Token1_20 < ::RFinvoice::Coercion::Token
       klass.primitive(const_get(klass_name))                #   primitive ::RFinvoice::Type::Token1_20

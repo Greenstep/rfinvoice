@@ -1,3 +1,18 @@
+module RFinvoice
+  module Type
+    class << self
+      def limit_and_klass_for(definition, klass)
+        if definition.is_a?(::Array)
+          min, max = definition
+          [(min..max), "#{klass}#{min}_#{max}"]
+        else
+          [definition, "#{klass}#{definition}"]
+        end
+      end
+    end
+  end
+end
+
 require 'rfinvoice/coercion/base'
 require 'rfinvoice/coercion/helper/limit'
 require 'rfinvoice/coercion/helper/pattern'

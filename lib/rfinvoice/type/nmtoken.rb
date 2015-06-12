@@ -10,12 +10,7 @@ module RFinvoice
       [0, 14], [0, 35], [0, 4], [0, 512],
       [1, 34], [2, 35], [8, 11], 2
     ].each do |definition|
-      limit, klass_name = if definition.is_a?(::Array)
-                            min, max = definition
-                            [(min..max), "NMToken#{min}_#{max}"]
-                          else
-                            [definition, "NMToken#{definition}"]
-                          end
+      limit, klass_name = limit_and_klass_for(definition, 'NMToken')
       # genericStringType specific class
       const_set(klass_name, ::Axiom::Types::String.new)    # ::RFinvoice::Type::NMToken0_14 = ::Axiom::Types::String.new
       klass = ::Class.new(::RFinvoice::Coercion::NMToken)  # class ::RFinvoice::Coercion::NMToken0_14 < ::RFinvoice::Coercion::NMToken
