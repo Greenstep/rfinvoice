@@ -47,4 +47,5 @@ Fabricator(:invoice_details, from: ::RFinvoice::InvoiceDetails) do |i|
   i.normal_proposed_account_identifier { ::SecureRandom.hex(2) }
   i.vat_specification_details { [Fabricate(:vat_specification_details)]  }
   i.discount_details { [Fabricate(:discount_details)] }
+  i.payment_terms_details
 end

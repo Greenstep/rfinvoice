@@ -6,6 +6,7 @@ require 'rfinvoice/invoice/quantity14'
 require 'rfinvoice/invoice/quantity70'
 require 'rfinvoice/invoice/amount'
 require 'rfinvoice/invoice/party_details'
+require 'rfinvoice/invoice/payment_over_due_fine_details'
 require 'rfinvoice/invoice/seller_party_details'
 require 'rfinvoice/invoice/seller_communication_details'
 require 'rfinvoice/invoice/message_transmission_details'
@@ -25,22 +26,22 @@ module RFinvoice
     attribute :version, ::String, default: '2.01'
     attribute :xmlns_xsi, ::String, default: 'http://www.w3.org/2001/XMLSchema-instance'
     attribute :xsi_nonamespace, ::String, default: 'Finvoice2.01.xsd'
-    add_complex_properties %w(MessageTransmissionDetails), required: false
-    add_complex_properties %w(SellerPartyDetails), required: true
+    add_modelized_properties %w(MessageTransmissionDetails), required: false
+    add_modelized_properties %w(SellerPartyDetails), required: true
     add_string_simple_properties '0_35', %w(SellerOrganisationUnitNumber SellerSiteCode SellerContactPersonName), required: false
     add_simple_collections %w(SellerContactPersonFunction SellerContactPersonDepartment), ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
-    add_complex_properties %w(SellerCommunicationDetails SellerInformationDetails InvoiceSenderPartyDetails InvoiceRecipientPartyDetails), required: false
+    add_modelized_properties %w(SellerCommunicationDetails SellerInformationDetails InvoiceSenderPartyDetails InvoiceRecipientPartyDetails), required: false
     add_string_simple_properties '0_35', %w(InvoiceRecipientOrganisationUnitNumber InvoiceRecipientSiteCode InvoiceRecipientContactPersonName), required: false
     add_simple_collections %w(InvoiceRecipientContactPersonFunction InvoiceRecipientContactPersonDepartment), ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
     add_nmtoken_simple_properties '2', %w(InvoiceRecipientLanguageCode), required: false
-    add_complex_properties %w(InvoiceRecipientCommunicationDetails BuyerPartyDetails), required: false
+    add_modelized_properties %w(InvoiceRecipientCommunicationDetails BuyerPartyDetails), required: false
     add_string_simple_properties '0_35', %w(BuyerOrganisationUnitNumber BuyerSiteCode BuyerContactPersonName), required: false
     add_simple_collections %w(BuyerContactPersonFunction BuyerContactPersonDepartment), ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
-    add_complex_properties %w(BuyerCommunicationDetails DeliveryPartyDetails), required: false
+    add_modelized_properties %w(BuyerCommunicationDetails DeliveryPartyDetails), required: false
     add_string_simple_properties '0_35', %w(DeliveryOrganisationUnitNumber DeliverySiteCode DeliveryContactPersonName), required: false
     add_simple_collections %w(DeliveryContactPersonFunction DeliveryContactPersonDepartment), ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
-    add_complex_properties %w(DeliveryCommunicationDetails DeliveryDetails), required: false
-    add_complex_properties %w(InvoiceDetails), required: true
+    add_modelized_properties %w(DeliveryCommunicationDetails DeliveryDetails), required: false
+    add_modelized_properties %w(InvoiceDetails), required: true
     add_string_simple_properties '0_512', %w(VirtualBankBarcode), required: false
     add_simple_collections %w(InvoiceUrlNameText InvoiceUrlText), ::Array[::RFinvoice::Type::String0_512], required: false
     add_string_simple_properties '0_512', %w(StorageUrlText), required: false

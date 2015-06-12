@@ -5,7 +5,7 @@ require 'rfinvoice/invoice/package_details'
 module RFinvoice
   class DeliveryDetails < Model
     add_date_properties %w(DeliveryDate), required: false
-    add_complex_properties %w(DeliveryPeriodDetails ShipmentPartyDetails), required: false
+    add_modelized_properties %w(DeliveryPeriodDetails ShipmentPartyDetails), required: false
     add_string_simple_properties '0_512', %w(DeliveryMethodText DeliveryTermsText), required: false
     add_string_simple_properties '1_4', %w(DeliveryTermsCode), required: false
     add_string_simple_properties '0_512', %w(TerminalAddressText), required: false
@@ -23,6 +23,6 @@ module RFinvoice
     add_simple_collections %w(ManufacturerName), ::RFinvoice::Type::Array0_3[::RFinvoice::Type::String0_35], required: false
     add_nmtoken_simple_properties '2', %w(ManufacturerCountryCode), required: false
     add_string_simple_properties '0_35', %w(ManufacturerCountryName ManufacturerOrderIdentifier), required: false
-    add_complex_properties %w(PackageDetails), required: false
+    add_modelized_properties %w(PackageDetails), required: false
   end
 end

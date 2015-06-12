@@ -6,7 +6,7 @@ require 'rfinvoice/invoice/payment_terms_details'
 
 module RFinvoice
   class InvoiceDetails < Model
-    add_complex_properties %w(InvoiceTypeCode), required: true
+    add_modelized_properties %w(InvoiceTypeCode), required: true
     add_string_simple_properties '1_35', %w(InvoiceTypeText), required: true
     add_simple_properties ::RFinvoice::Type::OriginCode, %w(OriginCode), required: true
     add_string_simple_properties '0_35', %w(OriginText), required: false
@@ -30,7 +30,7 @@ module RFinvoice
     add_string_simple_properties '0_35', %w(RegistrationNumberIdentifier ControllerIdentifier ControllerName), required: false
     add_date_properties %w(ControlDate), required: false
     add_string_simple_properties '0_35', %w(BuyerReferenceIdentifier ProjectReferenceIdentifier), required: false
-    add_complex_collection_array %w(DefinitionDetails), required: false
+    add_modelized_collection_array %w(DefinitionDetails), required: false
     add_amount_properties %w(InvoiceTotalVatExcludedAmount InvoiceTotalVatAmount), required: false
     add_amount_properties %w(InvoiceTotalVatIncludedAmount), required: true
     add_amount_properties %w(InvoiceTotalRoundoffAmount), required: false
@@ -41,9 +41,9 @@ module RFinvoice
     add_amount_properties %w(OperationLimitAmount MonthlyAmount), required: false
     add_nmtoken_simple_properties '0_4', %w(ShortProposedAccountIdentifier NormalProposedAccountIdentifier), required: false
     add_string_simple_properties '0_35', %w(ProposedAccountText AccountDimensionText SellerAccountText), required: false
-    add_complex_collection_array %w(VatSpecificationDetails), required: false
+    add_modelized_collection_array %w(VatSpecificationDetails), required: false
     add_simple_collections %w(InvoiceFreeText), ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_512], required: false
     add_string_simple_properties '0_70', %w(InvoiceVatFreeText), required: false
-    add_complex_collection_array %w(PaymentTermsDetails DiscountDetails), required: false
+    add_modelized_collection_array %w(PaymentTermsDetails DiscountDetails), required: false
   end
 end

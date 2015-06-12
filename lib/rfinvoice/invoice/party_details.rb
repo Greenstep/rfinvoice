@@ -12,7 +12,7 @@ module RFinvoice
                         end
       subclass.add_simple_collections [department_name], ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
       subclass.add_string_simple_properties '0_35', ["#{prefix}OrganisationTaxCode"], required: false
-      subclass.add_complex_properties ["#{prefix}Code", "#{prefix}PostalAddressDetails"], required: false
+      subclass.add_modelized_properties ["#{prefix}Code", "#{prefix}PostalAddressDetails"], required: false
     end
   end
 end

@@ -8,7 +8,7 @@ require 'rfinvoice/invoice/transport_carriage_quantity'
 
 module RFinvoice
   class PackageDetails < Model
-    add_complex_properties %w(PackageLength PackageWidth PackageHeight PackageWeight), required: false
-    add_complex_properties %w(PackageNetWeight PackageVolume TransportCarriageQuantity PackageWeight), required: false
+    add_modelized_properties %w(PackageLength PackageWidth PackageHeight PackageWeight), required: false
+    add_modelized_properties %w(PackageNetWeight PackageVolume TransportCarriageQuantity PackageWeight), required: false
   end
 end

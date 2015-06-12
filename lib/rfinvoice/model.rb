@@ -22,11 +22,15 @@ module RFinvoice
       end
 
       def add_date_properties(array, options = {})
-        add_complex_properties_with_type(array, ::RFinvoice::Date, options)
+        add_properties_with_type(array, ::RFinvoice::Date, options)
       end
 
       def add_amount_properties(array, options = {})
-        add_complex_properties_with_type(array, ::RFinvoice::Amount, options)
+        add_properties_with_type(array, ::RFinvoice::Amount, options)
+      end
+
+      def add_percentage_properties(array, options = {})
+        add_simple_properties(::RFinvoice::Type::Percentage, array, options)
       end
 
       def add_nmtoken_simple_properties(type, array, options = {})
@@ -39,14 +43,14 @@ module RFinvoice
         add_simple_properties(klass, array, options)
       end
 
-      def add_complex_properties(array, options = {})
+      def add_modelized_properties(array, options = {})
         self.xml_properties += array.map { |key| { klass: key, key: key, type: :complex_property } }
         array.each do |key|
           attribute key.underscore, "RFinvoice::#{key}".constantize, options
         end
       end
 
-      def add_complex_properties_with_type(array, klass, options = {})
+      def add_properties_with_type(array, klass, options = {})
         klass_name = klass.name.demodulize
         array.each do |key|
           self.xml_properties += [{ klass: klass_name, key: key, type: :complex_property }]
@@ -61,7 +65,7 @@ module RFinvoice
         end
       end
 
-      def add_complex_collection(array, klass, options = {})
+      def add_modelized_collection(array, klass, options = {})
         klass_name = if klass.is_a?(::Array)
                        klass.first.name.demodulize
                      else
@@ -73,7 +77,7 @@ module RFinvoice
         end
       end
 
-      def add_complex_collection_array(array, options = {})
+      def add_modelized_collection_array(array, options = {})
         array.each do |key|
           self.xml_properties += [{ klass: key, key: key, type: :complex_collection }]
           attribute key.underscore, ::Array["RFinvoice::#{key}".constantize], options

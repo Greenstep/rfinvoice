@@ -9,6 +9,6 @@ module RFinvoice
     add_simple_collections %w(SellerOrganisationDepartment), ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
     add_string_simple_properties '0_35', %w(SellerOrganisationTaxCode), required: false
     add_string_simple_properties '0_512', %w(SellerOrganisationTaxCodeUrlText), required: false
-    add_complex_properties %w(SellerCode SellerPostalAddressDetails), required: false
+    add_modelized_properties %w(SellerCode SellerPostalAddressDetails), required: false
   end
 end
