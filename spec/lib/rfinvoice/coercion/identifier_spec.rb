@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe ::RFinvoice::Coercion::Identifier do
-  subject { described_class.build(::RFinvoice::Type::Identifier, name: :test) }
+  subject { described_class.build(::RFinvoice::Type::IdentifierType, name: :test) }
 
   it 'should be strict' do
     expect(subject.strict?).to be_truthy

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe ::RFinvoice::Coercion::String do
-  subject { described_class.build(::RFinvoice::Type::String) }
+  subject { described_class.build(::RFinvoice::Type::StringType) }
 
   it 'should be strict' do
     expect(subject.strict?).to be_truthy

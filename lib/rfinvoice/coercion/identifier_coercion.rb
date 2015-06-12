@@ -1,11 +1,11 @@
 module RFinvoice
   module Coercion
-    class AccountNumberScheme < ::Virtus::Attribute
-      include ::RFinvoice::Coercion::Base
+    class Identifier < ::Virtus::Attribute
+      include ::RFinvoice::Coercion::BaseCoercion
       include ::RFinvoice::Coercion::Helper::Enum
       strict true
-      primitive ::RFinvoice::Type::AccountNumberScheme
-      ENUM = %w(IBAN BBAN)
+      primitive ::RFinvoice::Type::IdentifierType
+      ENUM = %w(DUNS GLN HETU EDI)
 
       def coerce(value)
         return unless value

@@ -1,9 +1,9 @@
 module RFinvoice
   module Coercion
-    class OriginCode < ::Virtus::Attribute
-      include ::RFinvoice::Coercion::Base
+    class OriginCodeCoercion < ::Virtus::Attribute
+      include ::RFinvoice::Coercion::BaseCoercion
       include ::RFinvoice::Coercion::Helper::Enum
-      primitive ::RFinvoice::Type::OriginCode
+      primitive ::RFinvoice::Type::OriginCodeType
       strict true
       ENUM = %w(Original Copy Cancel)
 

@@ -1,10 +1,10 @@
 module RFinvoice
   module Coercion
     class EchangeRateCoercion < ::Virtus::Attribute
-      include ::RFinvoice::Coercion::Base
+      include ::RFinvoice::Coercion::BaseCoercion
       include ::RFinvoice::Coercion::Helper::Pattern
       PATTERN = /\A[0-9]{1,15}(,[0-9]{1,6})?\z/
-      primitive ::RFinvoice::Type::ExchangeRate
+      primitive ::RFinvoice::Type::ExchangeRateType
       strict true
 
       def coerce(value)

@@ -1,14 +1,12 @@
 module RFinvoice
   module Coercion
-    class Token < ::Virtus::Attribute
-      include ::RFinvoice::Coercion::Base
-      include ::RFinvoice::Coercion::Helper::NormalizeString
+    class String < ::Virtus::Attribute
+      include ::RFinvoice::Coercion::BaseCoercion
       include ::RFinvoice::Coercion::Helper::Limit
       strict true
 
       def coerce(value)
         return unless value
-        value = normalize_string(value)
         coerce_for_limit(value)
       end
 

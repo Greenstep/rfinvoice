@@ -1,12 +1,12 @@
 module RFinvoice
   module Coercion
     class InvoiceTypeCodePattern < ::Virtus::Attribute
-      include ::RFinvoice::Coercion::Base
+      include ::RFinvoice::Coercion::BaseCoercion
       include ::RFinvoice::Coercion::Helper::Limit
       include ::RFinvoice::Coercion::Helper::Pattern
       PATTERN = /\A(REQ|QUO|ORD|ORC|INV|DEV|TES|INF|PRI|DEN|SEI)[0-9]{2}\z/
       LIMIT = 5
-      primitive ::RFinvoice::Type::InvoiceTypeCodePattern
+      primitive ::RFinvoice::Type::InvoiceTypeCodePatternType
       strict true
 
       def coerce(value)

@@ -1,7 +1,7 @@
 module RFinvoice
   module Coercion
-    class MonetaryAmount < AmountCoercion
-      primitive ::RFinvoice::Type::MonetaryAmount
+    class MonetaryAmountCoercion < AmountCoercion
+      primitive ::RFinvoice::Type::MonetaryAmountType
       PATTERN = /\A\-?[0-9]{1,15}(,[0-9]{2,5})?\z/
     end
   end

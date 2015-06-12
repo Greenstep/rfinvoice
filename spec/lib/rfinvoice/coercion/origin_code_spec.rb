@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe ::RFinvoice::Coercion::OriginCode do
-  subject { described_class.build(::RFinvoice::Type::OriginCode, name: :test) }
+RSpec.describe ::RFinvoice::Coercion::OriginCodeCoercion do
+  subject { described_class.build(::RFinvoice::Type::OriginCodeType, name: :test) }
 
   it 'should be strict' do
     expect(subject.strict?).to be_truthy

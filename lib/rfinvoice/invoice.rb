@@ -5,6 +5,7 @@ require 'rfinvoice/invoice/party_identifier'
 require 'rfinvoice/invoice/quantity14'
 require 'rfinvoice/invoice/quantity70'
 require 'rfinvoice/invoice/amount'
+require 'rfinvoice/invoice/unit_amount'
 require 'rfinvoice/invoice/party_details'
 require 'rfinvoice/invoice/payment_over_due_fine_details'
 require 'rfinvoice/invoice/seller_party_details'
@@ -43,13 +44,13 @@ module RFinvoice
     add_simple_collections %w(DeliveryContactPersonFunction DeliveryContactPersonDepartment), ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
     add_modelized_properties %w(DeliveryCommunicationDetails DeliveryDetails), required: false
     add_modelized_properties %w(InvoiceDetails), required: true
+    add_modelized_collection_array %w(InvoiceRow), required: true
     add_string_simple_properties '0_512', %w(VirtualBankBarcode), required: false
     add_simple_collections %w(InvoiceUrlNameText InvoiceUrlText), ::Array[::RFinvoice::Type::String0_512], required: false
     add_string_simple_properties '0_512', %w(StorageUrlText), required: false
     add_string_simple_properties '0_35', %w(LayOutIdentifier InvoiceSegmentIdentifier), required: false
     add_string_simple_properties '0_512', %w(ControlStampText AcceptanceStampText), required: false
     add_string_simple_properties '0_35', %w(OriginalInvoiceFormat), required: false
-    add_modelized_collection_array %w(InvoiceRow), required: true
 
     def to_xml
       decorator.to_xml

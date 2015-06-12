@@ -1,7 +1,7 @@
 module RFinvoice
   module Coercion
-    class NMToken < ::Virtus::Attribute
-      include ::RFinvoice::Coercion::Base
+    class NMTokenCoercion < ::Virtus::Attribute
+      include ::RFinvoice::Coercion::BaseCoercion
       include ::RFinvoice::Coercion::Helper::NormalizeString
       include ::RFinvoice::Coercion::Helper::Limit
       include ::RFinvoice::Coercion::Helper::Pattern

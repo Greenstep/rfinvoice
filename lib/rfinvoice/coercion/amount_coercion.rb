@@ -1,7 +1,7 @@
 module RFinvoice
   module Coercion
     class AmountCoercion < ::Virtus::Attribute
-      include ::RFinvoice::Coercion::Base
+      include ::RFinvoice::Coercion::BaseCoercion
       include ::RFinvoice::Coercion::Helper::Pattern
       strict true
 

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe ::RFinvoice::Coercion::BicScheme do
-  subject { described_class.build(::RFinvoice::Type::BicScheme, name: :test) }
+RSpec.describe ::RFinvoice::Coercion::BicSchemeCoercion do
+  subject { described_class.build(::RFinvoice::Type::BicSchemeType, name: :test) }
 
   it 'should be strict' do
     expect(subject.strict?).to be_truthy

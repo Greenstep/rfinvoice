@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe ::RFinvoice::Coercion::NMToken do
-  subject { described_class.build(::RFinvoice::Type::NMToken, name: :test) }
+RSpec.describe ::RFinvoice::Coercion::NMTokenCoercion do
+  subject { described_class.build(::RFinvoice::Type::NMTokenType, name: :test) }
 
   it 'should be strict' do
     expect(subject.strict?).to be_truthy

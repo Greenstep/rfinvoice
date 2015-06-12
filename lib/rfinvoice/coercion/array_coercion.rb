@@ -1,7 +1,7 @@
 module RFinvoice
   module Coercion
-    class String < ::Virtus::Attribute
-      include ::RFinvoice::Coercion::Base
+    class ArrayCoercion < ::Virtus::Attribute::Collection
+      include ::RFinvoice::Coercion::BaseCoercion
       include ::RFinvoice::Coercion::Helper::Limit
       strict true
 
@@ -11,7 +11,7 @@ module RFinvoice
       end
 
       def value_coerced?(value)
-        value.instance_of?(::String)
+        value.is_a?(::Array)
       end
     end
   end

@@ -1,11 +1,11 @@
 module RFinvoice
   module Coercion
-    class Version < ::Virtus::Attribute
-      include ::RFinvoice::Coercion::Base
+    class BicSchemeCoercion < ::Virtus::Attribute
+      include ::RFinvoice::Coercion::BaseCoercion
       include ::RFinvoice::Coercion::Helper::Enum
       strict true
-      primitive ::RFinvoice::Type::Version
-      ENUM = %w(1.0 1.1 1.2 1.3 2.0 2.01)
+      primitive ::RFinvoice::Type::BicSchemeType
+      ENUM = %w(BIC)
 
       def coerce(value)
         return unless value

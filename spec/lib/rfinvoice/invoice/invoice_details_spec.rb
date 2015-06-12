@@ -12,8 +12,8 @@ RSpec.describe ::RFinvoice::InvoiceDetails do
   it_should_behave_like 'a typed attributes', %w(OperationLimitAmount MonthlyAmount), 'Amount', false
   it_should_behave_like 'a complex attributes collection', %w(DefinitionDetails DiscountDetails PaymentTermsDetails), ::Array, false
   it_should_behave_like 'a typed attributes', %w(InvoiceTypeText), 'String1_35', true
-  it_should_behave_like 'a typed attributes', %w(OriginCode), 'OriginCode', true
-  it_should_behave_like 'a typed attributes', %w(CreditInterestPercent), 'Percentage', false
+  it_should_behave_like 'a typed attributes', %w(OriginCode), 'OriginCodeType', true
+  it_should_behave_like 'a typed attributes', %w(CreditInterestPercent), 'PercentageType', false
   it_should_behave_like 'a typed attributes', %w(OriginText SellerReferenceIdentifier), 'String0_35', false
   it_should_behave_like 'a typed attributes', %w(BuyersSellerIdentifier SellersBuyerIdentifier OrderIdentifier AgreementTypeText), 'String0_35', false
   it_should_behave_like 'a typed attributes', %w(OrdererName SalesPersonName OrderConfirmationIdentifier AgreementIdentifier), 'String0_35', false

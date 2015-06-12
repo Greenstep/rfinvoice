@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe ::RFinvoice::Coercion::AccountNumberScheme do
-  subject { described_class.build(::RFinvoice::Type::AccountNumberScheme, name: :test) }
+RSpec.describe ::RFinvoice::Coercion::AccountNumberSchemeCoercion do
+  subject { described_class.build(described_class, name: :test) }
 
   it 'should be strict' do
     expect(subject.strict?).to be_truthy

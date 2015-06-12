@@ -35,7 +35,7 @@ module RFinvoice
       end
 
       def add_percentage_properties(array, options = {})
-        add_simple_properties(::RFinvoice::Type::Percentage, array, options)
+        add_simple_properties(::RFinvoice::Type::PercentageType, array, options)
       end
 
       def add_nmtoken_simple_properties(type, array, options = {})

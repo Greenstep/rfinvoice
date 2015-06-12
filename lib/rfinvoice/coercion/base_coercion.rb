@@ -1,6 +1,6 @@
 module RFinvoice
   module Coercion
-    module Base
+    module BaseCoercion
       def primitive
         options[:primitive]
       end

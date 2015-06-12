@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ::RFinvoice::Coercion::UnitAmount do
+RSpec.describe ::RFinvoice::Coercion::UnitAmountCoercion do
   subject { described_class.build(described_class, name: :test) }
 
   it 'should be strict' do
