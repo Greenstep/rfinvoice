@@ -1,6 +1,6 @@
 module RFinvoice
   module Decorator
-    class PackageWidth < Quantity
+    class InvoiceRow < BaseDecorator
     end
   end
 end

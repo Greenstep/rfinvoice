@@ -9,5 +9,11 @@ module RFinvoice
         subclass.property :quantity_unit_code, as: 'QuantityUnitCode', attribute: true
       end
     end
+
+    class Quantity14 < Quantity
+    end
+
+    class Quantity70 < Quantity
+    end
   end
 end

@@ -19,4 +19,5 @@ RSpec.describe ::RFinvoice::Decorator::Invoice do
   it_should_behave_like 'a decorated properties', %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails SellerPartyDetails InvoiceSenderPartyDetails)
   it_should_behave_like 'a decorated properties', %w(InvoiceRecipientCommunicationDetails BuyerPartyDetails BuyerCommunicationDetails DeliveryPartyDetails)
   it_should_behave_like 'a decorated properties', %w(DeliveryDetails InvoiceDetails)
+  it_should_behave_like 'a decorated collections', %w(InvoiceRow)
 end

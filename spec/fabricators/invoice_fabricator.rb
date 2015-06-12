@@ -34,6 +34,7 @@ Fabricator(:invoice, from: ::RFinvoice::Invoice) do
   delivery_communication_details
   delivery_details
   invoice_details
+  invoice_row { [Fabricate(:invoice_row)] }
 
   lay_out_identifier { ::SecureRandom.hex(16) }
   invoice_segment_identifier { ::SecureRandom.hex(16) }
@@ -44,5 +45,6 @@ Fabricator(:invoice, from: ::RFinvoice::Invoice) do
   storage_url_text { ::FFaker::Internet.http_url }
   control_stamp_text { ::FFaker::Lorem.words.join(' ') }
   acceptance_stamp_text { ::FFaker::Lorem.words.join(' ') }
+
   # collections
 end

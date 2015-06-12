@@ -29,6 +29,11 @@ module RFinvoice
         add_properties_with_type(array, ::RFinvoice::Amount, options)
       end
 
+      def add_quantity_properties(len, array, options = {})
+        klass = "RFinvoice::Quantity#{len}".constantize
+        add_properties_with_type(array, klass, options)
+      end
+
       def add_percentage_properties(array, options = {})
         add_simple_properties(::RFinvoice::Type::Percentage, array, options)
       end

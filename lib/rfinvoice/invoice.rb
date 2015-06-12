@@ -20,6 +20,7 @@ require 'rfinvoice/invoice/delivery_party_details'
 require 'rfinvoice/invoice/delivery_communication_details'
 require 'rfinvoice/invoice/delivery_details'
 require 'rfinvoice/invoice/invoice_details'
+require 'rfinvoice/invoice/invoice_row'
 
 module RFinvoice
   class Invoice < Model
@@ -48,6 +49,7 @@ module RFinvoice
     add_string_simple_properties '0_35', %w(LayOutIdentifier InvoiceSegmentIdentifier), required: false
     add_string_simple_properties '0_512', %w(ControlStampText AcceptanceStampText), required: false
     add_string_simple_properties '0_35', %w(OriginalInvoiceFormat), required: false
+    add_modelized_collection_array %w(InvoiceRow), required: true
 
     def to_xml
       decorator.to_xml
