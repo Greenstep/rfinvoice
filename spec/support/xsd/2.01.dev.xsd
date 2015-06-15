@@ -97,18 +97,8 @@
   </xs:complexType>
   <xs:complexType name="EpiDetailsType">
     <xs:sequence>
-      <xs:element name="EpiIdentificationDetails" type="EpiIdentificationDetailsType"/>
       <xs:element name="EpiPartyDetails" type="EpiPartyDetailsType"/>
       <xs:element name="EpiPaymentInstructionDetails" type="EpiPaymentInstructionDetailsType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EpiIdentificationDetailsType">
-    <xs:sequence>
-      <xs:element name="EpiDate" type="date"/>
-      <xs:element name="EpiReference" type="genericNMtokenType0_35"/>
-      <xs:element name="EpiUrl" type="genericNMtokenType0_512" minOccurs="0"/>
-      <xs:element name="EpiEmail" type="genericStringType0_70" minOccurs="0"/>
-      <xs:element name="EpiOrderInfo" type="genericTokenType0_70" minOccurs="0" maxOccurs="7"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="EpiPartyDetailsType">
