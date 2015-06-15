@@ -1,6 +1,6 @@
 module RFinvoice
   module Decorator
-    class SellerAccountID < AccountID
+    class EpiBfiPartyDetails < BaseDecorator
     end
   end
 end

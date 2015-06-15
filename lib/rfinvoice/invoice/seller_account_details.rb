@@ -1,8 +1,6 @@
-require 'rfinvoice/invoice/seller_account_id'
-require 'rfinvoice/invoice/seller_bic'
-
 module RFinvoice
   class SellerAccountDetails < Model
-    add_modelized_properties %w(SellerAccountID SellerBic), required: true
+    add_properties_with_type %w(SellerAccountID), ::RFinvoice::AccountID, required: false
+    add_properties_with_type %w(SellerBic), ::RFinvoice::AccountBic, required: false
   end
 end

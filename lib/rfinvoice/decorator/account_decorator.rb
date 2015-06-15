@@ -1,6 +1,6 @@
 module RFinvoice
   module Decorator
-    class AccountID < Representable::Decorator
+    class AccountDecorator < Representable::Decorator
       include ::Representable::XML
 
       def self.inherited(subclass)
@@ -8,6 +8,11 @@ module RFinvoice
         subclass.property :value, content: true
         subclass.property :identification_scheme_name, as: 'IdentificationSchemeName', attribute: true
       end
+    end
+    class AccountID < AccountDecorator
+    end
+
+    class AccountBic < AccountDecorator
     end
   end
 end

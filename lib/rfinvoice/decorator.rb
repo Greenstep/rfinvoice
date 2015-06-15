@@ -1,6 +1,6 @@
 require 'rfinvoice/decorator/base_decorator'
 require 'rfinvoice/decorator/date'
-require 'rfinvoice/decorator/account_id'
+require 'rfinvoice/decorator/account_decorator'
 require 'rfinvoice/decorator/party_identifier'
 require 'rfinvoice/decorator/quantity'
 require 'rfinvoice/decorator/amount'

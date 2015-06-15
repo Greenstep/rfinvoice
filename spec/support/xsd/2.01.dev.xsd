@@ -82,42 +82,9 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:complexType name="EpiBfiIdentifierType">
-    <xs:simpleContent>
-      <xs:extension base="genericNMtokenType8_11">
-        <xs:attribute name="IdentificationSchemeName" use="required">
-          <xs:simpleType>
-            <xs:restriction base="xs:NMTOKEN">
-              <xs:enumeration value="BIC"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:attribute>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
   <xs:complexType name="EpiDetailsType">
     <xs:sequence>
-      <xs:element name="EpiPartyDetails" type="EpiPartyDetailsType"/>
       <xs:element name="EpiPaymentInstructionDetails" type="EpiPaymentInstructionDetailsType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EpiPartyDetailsType">
-    <xs:sequence>
-      <xs:element name="EpiBfiPartyDetails" type="EpiBfiPartyDetailsType"/>
-      <xs:element name="EpiBeneficiaryPartyDetails" type="EpiBeneficiaryPartyDetailsType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EpiBfiPartyDetailsType">
-    <xs:sequence>
-      <xs:element name="EpiBfiIdentifier" type="EpiBfiIdentifierType" minOccurs="0"/>
-      <xs:element name="EpiBfiName" type="genericStringType1_35" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EpiBeneficiaryPartyDetailsType">
-    <xs:sequence>
-      <xs:element name="EpiNameAddressDetails" type="genericTokenType2_35" minOccurs="0"/>
-      <xs:element name="EpiBei" type="genericNMtokenType8_11" minOccurs="0"/>
-      <xs:element name="EpiAccountID" type="EpiAccountIDType"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="EpiPaymentInstructionDetailsType">
