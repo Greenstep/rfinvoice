@@ -178,22 +178,6 @@
   </xs:simpleType>
   <xs:complexType name="InvoiceRowType">
     <xs:sequence>
-      <xs:element name="RowDefinitionDetails" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="RowDefinitionHeaderText">
-              <xs:complexType>
-                <xs:simpleContent>
-                  <xs:extension base="genericStringType0_70">
-                    <xs:attribute name="DefinitionCode" type="genericTokenType1_20" use="optional"/>
-                  </xs:extension>
-                </xs:simpleContent>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="RowDefinitionValue" type="QuantityType0_70" minOccurs="0"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
       <xs:element name="RowOverDuePaymentDetails" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
@@ -385,66 +369,6 @@
   </xs:complexType>
   <xs:complexType name="SubInvoiceRowType">
     <xs:sequence>
-      <xs:element name="SubIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowPositionIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubArticleIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubArticleGroupIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubArticleName" type="genericStringType0_100" minOccurs="0"/>
-      <xs:element name="SubArticleInfoUrlText" type="genericStringType0_512" minOccurs="0"/>
-      <xs:element name="SubBuyerArticleIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubEanCode" type="genericTokenType0_35" minOccurs="0"/>
-      <xs:element name="SubRowRegistrationNumberIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubSerialNumberIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowActionCode" type="genericTokenType0_35" minOccurs="0"/>
-      <xs:element name="SubRowDefinitionDetails" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="SubRowDefinitionHeaderText">
-              <xs:complexType>
-                <xs:simpleContent>
-                  <xs:extension base="genericStringType0_70">
-                    <xs:attribute name="DefinitionCode" type="genericTokenType1_20" use="optional"/>
-                  </xs:extension>
-                </xs:simpleContent>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="SubRowDefinitionValue" type="QuantityType0_70" minOccurs="0"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="SubOfferedQuantity" type="QuantityType0_14" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="SubDeliveredQuantity" type="QuantityType0_14" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="SubOrderedQuantity" type="QuantityType0_14" minOccurs="0"/>
-      <xs:element name="SubConfirmedQuantity" type="QuantityType0_14" minOccurs="0"/>
-      <xs:element name="SubPostDeliveredQuantity" type="QuantityType0_14" minOccurs="0"/>
-      <xs:element name="SubInvoicedQuantity" type="QuantityType0_14" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="SubCreditRequestedQuantity" type="QuantityType0_14" minOccurs="0"/>
-      <xs:element name="SubReturnedQuantity" type="QuantityType0_14" minOccurs="0"/>
-      <xs:element name="SubStartDate" type="date" minOccurs="0"/>
-      <xs:element name="SubEndDate" type="date" minOccurs="0"/>
-      <xs:element name="SubUnitPriceAmount" type="unitAmount" minOccurs="0"/>
-      <xs:element name="SubUnitPriceVatIncludedAmount" type="unitAmount" minOccurs="0"/>
-      <xs:element name="SubUnitPriceBaseQuantity" type="QuantityType0_14" minOccurs="0"/>
-      <xs:element name="SubRowIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowIdentifierUrlText" type="genericStringType0_512" minOccurs="0"/>
-      <xs:element name="SubRowIdentifierDate" type="date" minOccurs="0"/>
-      <xs:element name="SubRowOrdererName" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowSalesPersonName" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowOrderConfirmationIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowOrderConfirmationDate" type="date" minOccurs="0"/>
-      <xs:element name="SubOriginalInvoiceNumber" type="genericStringType1_20" minOccurs="0"/>
-      <xs:element name="SubRowDeliveryIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowDeliveryIdentifierUrlText" type="genericStringType0_512" minOccurs="0"/>
-      <xs:element name="SubRowDeliveryDate" type="date" minOccurs="0"/>
-      <xs:element name="SubRowQuotationIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowQuotationIdentifierUrlText" type="genericStringType0_512" minOccurs="0"/>
-      <xs:element name="SubRowAgreementIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowAgreementIdentifierUrlText" type="genericStringType0_512" minOccurs="0"/>
-      <xs:element name="SubRowRequestOfQuotationIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowRequestOfQuotationIdentifierUrlText" type="genericStringType0_512" minOccurs="0"/>
-      <xs:element name="SubRowPriceListIdentifier" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowPriceListIdentifierUrlText" type="genericStringType0_512" minOccurs="0"/>
-      <xs:element name="SubRowProjectReferenceIdentifier" type="genericStringType0_35" minOccurs="0"/>
       <xs:element name="SubRowOverDuePaymentDetails" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
@@ -498,21 +422,6 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="SubRowDeliveryDetails" type="SubRowDeliveryDetailsType" minOccurs="0"/>
-      <xs:element name="SubRowShortProposedAccountIdentifier" type="genericStringType0_4" minOccurs="0"/>
-      <xs:element name="SubRowNormalProposedAccountIdentifier" type="genericStringType0_4" minOccurs="0"/>
-      <xs:element name="SubRowProposedAccountText" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowAccountDimensionText" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowSellerAccountText" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowFreeText" type="genericStringType0_512" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="SubRowUsedQuantity" type="QuantityType0_14" minOccurs="0"/>
-      <xs:element name="SubRowPreviousMeterReadingDate" type="date" minOccurs="0"/>
-      <xs:element name="SubRowLatestMeterReadingDate" type="date" minOccurs="0"/>
-      <xs:element name="SubRowCalculatedQuantity" type="QuantityType0_14" minOccurs="0"/>
-      <xs:element name="SubRowAveragePriceAmount" type="amount" minOccurs="0"/>
-      <xs:element name="SubRowDiscountPercent" type="percentage" minOccurs="0"/>
-      <xs:element name="SubRowDiscountAmount" type="amount" minOccurs="0"/>
-      <xs:element name="SubRowDiscountTypeCode" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="SubRowDiscountTypeText" type="genericStringType0_35" minOccurs="0"/>
       <xs:element name="SubRowProgressiveDiscountDetails" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
@@ -523,11 +432,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="SubRowVatRatePercent" type="percentage" minOccurs="0"/>
-      <xs:element name="SubRowVatCode" type="genericStringType0_10" minOccurs="0"/>
-      <xs:element name="SubRowVatAmount" type="amount" minOccurs="0"/>
-      <xs:element name="SubRowVatExcludedAmount" type="amount" minOccurs="0"/>
-      <xs:element name="SubRowAmount" type="amount" minOccurs="0"/>
       <xs:element name="SubRowTransactionDetails" type="TransactionDetailsType" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>

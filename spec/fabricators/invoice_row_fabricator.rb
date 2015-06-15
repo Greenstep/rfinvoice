@@ -52,8 +52,8 @@ Fabricator(:invoice_row, from: ::RFinvoice::InvoiceRow) do
   row_discount_percent { %w(0 10 14 24).sample }
   row_vat_rate_percent { %w(0 10 14 24).sample }
   row_free_text { ::FFaker::Lorem.words }
-  offered_quantity { Fabricate(:quantity14) }
-  delivered_quantity { Fabricate(:quantity14) }
+  offered_quantity { [Fabricate(:quantity14)] }
+  delivered_quantity { [Fabricate(:quantity14)] }
   ordered_quantity { Fabricate(:quantity14) }
   confirmed_quantity { Fabricate(:quantity14) }
   post_delivered_quantity { Fabricate(:quantity14) }
@@ -61,4 +61,6 @@ Fabricator(:invoice_row, from: ::RFinvoice::InvoiceRow) do
   credit_requested_quantity { Fabricate(:quantity14) }
   returned_quantity { Fabricate(:quantity14) }
   unit_price_base_quantity { Fabricate(:quantity14) }
+  row_definition_details { [Fabricate(:row_definition_details)] }
+  sub_invoice_row { [Fabricate(:sub_invoice_row)] }
 end

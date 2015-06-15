@@ -23,11 +23,13 @@ RSpec.describe ::RFinvoice::InvoiceRow do
   it_should_behave_like 'a typed attributes', %w(UnitPriceAmount UnitPriceVatIncludedAmount), 'UnitAmount', false
   it_should_behave_like 'a typed attributes', %w(RowDiscountPercent RowVatRatePercent), 'PercentageType', false
   it_should_behave_like 'a typed array attributes', %w(RowFreeText), ::Array, 'String0_512', false
-  it_should_behave_like 'a typed attributes', %w(OfferedQuantity DeliveredQuantity OrderedQuantity), 'Quantity14', false
+  it_should_behave_like 'a typed array attributes', %w(RowFreeText), ::Array, 'String0_512', false
+  it_should_behave_like 'a typed attributes', %w(OrderedQuantity), 'Quantity14', false
   it_should_behave_like 'a typed attributes', %w(ConfirmedQuantity PostDeliveredQuantity InvoicedQuantity), 'Quantity14', false
   it_should_behave_like 'a typed attributes', %w(CreditRequestedQuantity ReturnedQuantity UnitPriceBaseQuantity), 'Quantity14', false
+  it_should_behave_like 'a modelized array attributes', %w(OfferedQuantity DeliveredQuantity), ::Array, 'Quantity14', false
+  it_should_behave_like 'a modelized array attributes', %w(SubInvoiceRow), ::Array, 'SubInvoiceRow', false
 
   # it_should_behave_like 'a complex attributes', %w(InvoiceTypeCode),  true
-  # it_should_behave_like 'a complex attributes collection', %w(DefinitionDetails DiscountDetails PaymentTermsDetails), ::Array, false
   # it_should_behave_like 'a typed array attributes', %w(InvoiceFreeText), ::RFinvoice::Type::Array0_2, 'String0_512', false
 end

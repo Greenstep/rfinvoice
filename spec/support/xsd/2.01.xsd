@@ -624,7 +624,7 @@
 			<xs:element name="RowDiscountAmount" type="amount" minOccurs="0"/>
 			<xs:element name="RowDiscountTypeCode" type="genericStringType0_35" minOccurs="0"/>
 			<xs:element name="RowDiscountTypeText" type="genericStringType0_35" minOccurs="0"/>
-			<xs:element name="RowProgressiveDiscountDetails" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="RowTransactionDetailsRowProgressiveDiscountDetails" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="RowDiscountPercent" type="percentage" minOccurs="0"/>

@@ -1,8 +1,6 @@
-require 'rfinvoice/invoice/definition_value'
-require 'rfinvoice/invoice/definition_header_text'
-
 module RFinvoice
   class DefinitionDetails < Model
-    add_modelized_properties %w(DefinitionHeaderText DefinitionValue), required: false
+    add_properties_with_type %w(DefinitionHeaderText), ::RFinvoice::DefinitionHeaderText, required: false
+    add_quantity_properties '70', %w(DefinitionValue), required: false
   end
 end
