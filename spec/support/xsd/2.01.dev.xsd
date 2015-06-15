@@ -12,7 +12,6 @@
         <xs:element name="FactoringAgreementDetails" type="FactoringAgreementDetailsType" minOccurs="0"/>
         <xs:element name="InvoiceRow" type="InvoiceRowType" maxOccurs="unbounded"/>
         <xs:element name="SpecificationDetails" type="SpecificationDetailsType" minOccurs="0"/>
-        <xs:element name="EpiDetails" type="EpiDetailsType"/>
         <xs:element name="AttachmentMessageDetails" type="AttachmentMessageDetailsType" minOccurs="0"/>
       </xs:sequence>
     </xs:complexType>
@@ -82,57 +81,6 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:complexType name="EpiDetailsType">
-    <xs:sequence>
-      <xs:element name="EpiPaymentInstructionDetails" type="EpiPaymentInstructionDetailsType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EpiPaymentInstructionDetailsType">
-    <xs:sequence>
-      <xs:element name="EpiPaymentInstructionId" type="genericStringType0_35" minOccurs="0"/>
-      <xs:element name="EpiTransactionTypeCode" type="genericTokenType3" minOccurs="0"/>
-      <xs:element name="EpiInstructionCode" type="genericNMtokenType0_35" minOccurs="0"/>
-      <xs:element name="EpiRemittanceInfoIdentifier" type="EpiRemittanceInfoIdentifierType" minOccurs="0"/>
-      <xs:element name="EpiInstructedAmount" type="epiAmount"/>
-      <xs:element name="EpiCharge" type="EpiChargeType"/>
-      <xs:element name="EpiDateOptionDate" type="date"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EpiChargeType">
-    <xs:simpleContent>
-      <xs:extension base="xs:token">
-        <xs:attribute name="ChargeOption" use="required">
-          <xs:simpleType>
-            <xs:restriction base="xs:NMTOKEN">
-              <xs:enumeration value="SHA"/>
-              <xs:enumeration value="OUR"/>
-              <xs:enumeration value="BEN"/>
-              <xs:enumeration value="SLEV"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:attribute>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:complexType name="EpiRemittanceInfoIdentifierType">
-    <xs:simpleContent>
-      <xs:extension base="EpiRemittanceInfoIdentifierPattern">
-        <xs:attribute name="IdentificationSchemeName">
-          <xs:simpleType>
-            <xs:restriction base="xs:NMTOKEN">
-              <xs:enumeration value="SPY"/>
-              <xs:enumeration value="ISO"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:attribute>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:simpleType name="EpiRemittanceInfoIdentifierPattern">
-    <xs:restriction base="xs:NMTOKEN">
-      <xs:pattern value="([0-9]{2,20})|(RF[0-9][0-9][0-9A-Za-z]{1,21})"/>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:complexType name="InvoiceRowType">
     <xs:sequence>
       <xs:element name="RowOverDuePaymentDetails" minOccurs="0">

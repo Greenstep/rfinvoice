@@ -12,6 +12,6 @@ RSpec.describe 'Invoice generation' do
     errors.each do |error|
       puts error.message
     end
-    expect(errors.size).to_not eq(0)
+    expect(errors.size).to eq(0)
   end
 end
