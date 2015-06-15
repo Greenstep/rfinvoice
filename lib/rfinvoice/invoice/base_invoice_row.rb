@@ -1,7 +1,7 @@
 module RFinvoice
   class BaseInvoiceRow < Model
-
     class << self
+      # rubocop:disable all
       def invoice_row_with_prefix(prefix = '')
         add_string_simple_properties '0_35', %w(ArticleIdentifier ArticleGroupIdentifier).map { |x| "#{prefix}#{x}" }, required: false
         add_string_simple_properties '0_100', %w(ArticleName).map { |x| "#{prefix}#{x}" }, required: false
@@ -51,6 +51,7 @@ module RFinvoice
         add_amount_properties %w(RowVatAmount RowVatExcludedAmount RowAmount).map { |x| "#{prefix}#{x}" }, required: false
         # add_modelized_properties %w(RowTransactionDetails), required: false TODO: Implement this
       end
+      # rubocop:enable all
     end
   end
 end
