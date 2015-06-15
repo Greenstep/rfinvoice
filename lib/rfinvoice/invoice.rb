@@ -24,6 +24,7 @@ require 'rfinvoice/invoice/delivery_details'
 require 'rfinvoice/invoice/invoice_details'
 require 'rfinvoice/invoice/base_invoice_row'
 require 'rfinvoice/invoice/invoice_row'
+require 'rfinvoice/invoice/epi_details'
 
 module RFinvoice
   class Invoice < Model
@@ -46,8 +47,9 @@ module RFinvoice
     add_simple_collections %w(DeliveryContactPersonFunction DeliveryContactPersonDepartment), ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
     add_modelized_properties %w(DeliveryCommunicationDetails DeliveryDetails), required: false
     add_modelized_properties %w(InvoiceDetails), required: true
-    add_modelized_collection_array %w(InvoiceRow), required: true
     add_string_simple_properties '0_512', %w(VirtualBankBarcode), required: false
+    add_modelized_collection_array %w(InvoiceRow), required: true
+    add_modelized_properties %w(EpiDetails), required: true
     add_simple_collections %w(InvoiceUrlNameText InvoiceUrlText), ::Array[::RFinvoice::Type::String0_512], required: false
     add_string_simple_properties '0_512', %w(StorageUrlText), required: false
     add_string_simple_properties '0_35', %w(LayOutIdentifier InvoiceSegmentIdentifier), required: false

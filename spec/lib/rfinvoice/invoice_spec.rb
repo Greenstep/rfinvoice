@@ -19,5 +19,5 @@ RSpec.describe ::RFinvoice::Invoice do
   it_should_behave_like 'a typed array attributes', %w(InvoiceUrlText InvoiceUrlNameText), ::Array, 'String0_512', false
   it_should_behave_like 'a complex attributes', %w(SellerCommunicationDetails MessageTransmissionDetails SellerInformationDetails InvoiceSenderPartyDetails), false
   it_should_behave_like 'a complex attributes', %w(InvoiceRecipientPartyDetails BuyerCommunicationDetails DeliveryCommunicationDetails DeliveryDetails), false
-  it_should_behave_like 'a complex attributes', %w(InvoiceDetails SellerPartyDetails), true
+  it_should_behave_like 'a complex attributes', %w(InvoiceDetails SellerPartyDetails EpiDetails), true
 end

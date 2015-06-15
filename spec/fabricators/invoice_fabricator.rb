@@ -35,7 +35,7 @@ Fabricator(:invoice, from: ::RFinvoice::Invoice) do
   delivery_details
   invoice_details
   invoice_row { [Fabricate(:invoice_row)] }
-
+  epi_details
   lay_out_identifier { ::SecureRandom.hex(16) }
   invoice_segment_identifier { ::SecureRandom.hex(16) }
   original_invoice_format { ::SecureRandom.hex(16) }
