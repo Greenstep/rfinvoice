@@ -2,15 +2,14 @@ language: ruby
 rvm:
   - 2.0.0
   - 2.2
-  - jruby-19mode
   - ruby-head
   - rbx-2
 matrix:
   include:
     - rvm: jruby
-      env: JRUBY_OPTS="--2.0"
+      env: JRUBY_OPTS="--2.0 -Xcli.debug=true --debug"
     - rvm: jruby-head
-      env: JRUBY_OPTS="--2.1"
+      env: JRUBY_OPTS="--2.1 -Xcli.debug=true --debug"
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-19mode
