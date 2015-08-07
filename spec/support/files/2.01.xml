@@ -1,0 +1,96 @@
+<Finvoice Version="2.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Finvoice2.01.xsd">
+  <SellerPartyDetails>
+    <SellerOrganisationName>Test</SellerOrganisationName>
+    <SellerOrganisationName>Mav</SellerOrganisationName>
+  </SellerPartyDetails>
+  <SellerContactPersonName>Test Mav</SellerContactPersonName>
+  <SellerContactPersonFunction>employee</SellerContactPersonFunction>
+  <SellerCommunicationDetails>
+    <SellerEmailaddressIdentifier>t-m@example.com</SellerEmailaddressIdentifier>
+  </SellerCommunicationDetails>
+  <SellerInformationDetails>
+    <SellerAccountDetails>
+      <SellerAccountID IdentificationSchemeName="IBAN">FI2112345600000785</SellerAccountID>
+      <SellerBic IdentificationSchemeName="BIC">ITELFIHH</SellerBic>
+    </SellerAccountDetails>
+    <InvoiceRecipientDetails>
+      <InvoiceRecipientAddress>FI1180201710224434</InvoiceRecipientAddress>
+      <InvoiceRecipientIntermediatorAddress>DABAFIHH</InvoiceRecipientIntermediatorAddress>
+    </InvoiceRecipientDetails>
+  </SellerInformationDetails>
+  <InvoiceRecipientPartyDetails>
+    <InvoiceRecipientOrganisationName>Test M</InvoiceRecipientOrganisationName>
+    <InvoiceRecipientOrganisationTaxCode>FI23064613</InvoiceRecipientOrganisationTaxCode>
+  </InvoiceRecipientPartyDetails>
+  <InvoiceRecipientContactPersonName>App Mav, Test Mav</InvoiceRecipientContactPersonName>
+  <BuyerPartyDetails>
+    <BuyerPartyIdentifier>23064613</BuyerPartyIdentifier>
+    <BuyerOrganisationName>Test M</BuyerOrganisationName>
+  </BuyerPartyDetails>
+  <InvoiceDetails>
+    <InvoiceTypeCode CodeListAgencyIdentifier="SPY">INV06</InvoiceTypeCode>
+    <InvoiceTypeText>PRO FORMA INVOICE</InvoiceTypeText>
+    <OriginCode>Copy</OriginCode>
+    <InvoiceNumber>C1001507271448</InvoiceNumber>
+    <InvoiceDate Format="CCYYMMDD">20150727</InvoiceDate>
+    <InvoicingPeriodStartDate Format="CCYYMMDD">20150720</InvoicingPeriodStartDate>
+    <InvoicingPeriodEndDate Format="CCYYMMDD">20150726</InvoicingPeriodEndDate>
+    <SellerReferenceIdentifier>Test Mav</SellerReferenceIdentifier>
+    <SellerReferenceIdentifierUrlText>http://receiptcamera.com</SellerReferenceIdentifierUrlText>
+    <OrderIdentifierUrlText>http://rcam.fastdeployers.net/batch/53/pdf/e4fc79dd-8e73-4ab4-a6e1-18624b80eb68.pdf</OrderIdentifierUrlText>
+    <OrderDate Format="CCYYMMDD">20150727</OrderDate>
+    <DefinitionDetails>
+      <DefinitionHeaderText>Expense Claims: Receiptcamera</DefinitionHeaderText>
+    </DefinitionDetails>
+    <InvoiceTotalVatExcludedAmount AmountCurrencyIdentifier="EUR">0,00</InvoiceTotalVatExcludedAmount>
+    <InvoiceTotalVatAmount AmountCurrencyIdentifier="EUR">0,00</InvoiceTotalVatAmount>
+    <InvoiceTotalVatIncludedAmount AmountCurrencyIdentifier="EUR">0,00</InvoiceTotalVatIncludedAmount>
+    <InvoiceFreeText>Receipts for Test Mav between 2015-07-20 and 2015-07-26 sent through Receiptcamera</InvoiceFreeText>
+    <InvoiceFreeText>  Link to PDF: http://rcam.fastdeployers.net/batch/53/pdf/e4fc79dd-8e73-4ab4-a6e1-18624b80eb68.pdf</InvoiceFreeText>
+    <PaymentTermsDetails>
+      <PaymentTermsFreeText>Complaints within 7 days.</PaymentTermsFreeText>
+      <InvoiceDueDate Format="CCYYMMDD">20150803</InvoiceDueDate>
+    </PaymentTermsDetails>
+  </InvoiceDetails>
+  <InvoiceRow>
+    <ArticleName>Test Mav - 2015-07-27 - Receipt</ArticleName>
+    <ArticleInfoUrlText>http://rcam.fastdeployers.net/batch/53/attachments/811</ArticleInfoUrlText>
+    <RowShortProposedAccountIdentifier>8530</RowShortProposedAccountIdentifier>
+    <RowNormalProposedAccountIdentifier>8530</RowNormalProposedAccountIdentifier>
+    <RowProposedAccountText>Datasiirtokulut</RowProposedAccountText>
+    <RowAccountDimensionText/>
+    <RowFreeText>8530 -  - toimistokalusteita
+</RowFreeText>
+    <RowFreeText>Tili: Datasiirtokulut(8530)
+
+</RowFreeText>
+    <RowFreeText>Kustannuspaikka: 
+</RowFreeText>
+    <RowFreeText>Link to receipt image: http://rcam.fastdeployers.net/batch/53/attachments/811</RowFreeText>
+    <RowVatRatePercent>10,00</RowVatRatePercent>
+    <RowVatAmount AmountCurrencyIdentifier="EUR">0,00</RowVatAmount>
+    <RowVatExcludedAmount AmountCurrencyIdentifier="EUR">0,02</RowVatExcludedAmount>
+    <RowAmount AmountCurrencyIdentifier="EUR">0,02</RowAmount>
+  </InvoiceRow>
+  <EpiDetails>
+    <EpiIdentificationDetails>
+      <EpiDate Format="CCYYMMDD">20150727</EpiDate>
+      <EpiReference>0</EpiReference>
+    </EpiIdentificationDetails>
+    <EpiPartyDetails>
+      <EpiBfiPartyDetails>
+        <EpiBfiIdentifier IdentificationSchemeName="BIC">ITELFIHH</EpiBfiIdentifier>
+      </EpiBfiPartyDetails>
+      <EpiBeneficiaryPartyDetails>
+        <EpiNameAddressDetails>Test Mav</EpiNameAddressDetails>
+        <EpiAccountID IdentificationSchemeName="IBAN">FI2112345600000785</EpiAccountID>
+      </EpiBeneficiaryPartyDetails>
+    </EpiPartyDetails>
+    <EpiPaymentInstructionDetails>
+      <EpiRemittanceInfoIdentifier IdentificationSchemeName="ISO">RF804806FA0472034B5D722A</EpiRemittanceInfoIdentifier>
+      <EpiInstructedAmount AmountCurrencyIdentifier="EUR">0,00</EpiInstructedAmount>
+      <EpiCharge ChargeOption="SHA"/>
+      <EpiDateOptionDate Format="CCYYMMDD">20150803</EpiDateOptionDate>
+    </EpiPaymentInstructionDetails>
+  </EpiDetails>
+</Finvoice>

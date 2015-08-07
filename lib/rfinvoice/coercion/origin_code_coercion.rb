@@ -9,6 +9,7 @@ module RFinvoice
 
       def coerce(value)
         return '' unless value
+        value = 'Original' if value == 'Origin' # compatibility with 1.0
         coerce_for_enum(value)
       end
 

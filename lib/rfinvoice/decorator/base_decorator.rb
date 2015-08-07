@@ -1,5 +1,3 @@
-require 'pry'
-require 'active_support/core_ext/object/blank'
 module RFinvoice
   module Decorator
     class BaseDecorator < ::Representable::Decorator
@@ -30,7 +28,9 @@ module RFinvoice
 
         def simple_item(type, options)
           key = options[:key]
-          __send__(type, key.underscore.to_sym, as: key, skip_render: ->(obj, _) { !obj.present? })
+          __send__(type, key.underscore.to_sym, as: key,
+                   skip_render: ->(obj, _) { !obj.present? },
+                   skip_parse:  ->(fragment, _) { !fragment.present? })
         end
 
         def decorated_item(type, options)
@@ -40,7 +40,7 @@ module RFinvoice
                    as:        key,
                    class:     "RFinvoice::#{klass}".constantize,
                    decorator: "RFinvoice::Decorator::#{klass}".constantize
-                  )
+          )
         end
       end
     end
