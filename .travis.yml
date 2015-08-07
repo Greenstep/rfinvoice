@@ -12,4 +12,6 @@ matrix:
       env: JRUBY_OPTS="--2.1 -Xcli.debug=true --debug"
   allow_failures:
     - rvm: ruby-head
-    - rvm: jruby-19mode
+    - rvm: jruby-head
+cache: bundler
+sudo: false
