@@ -4,7 +4,7 @@ module RFinvoice
       super(subclass)
       prefix = subclass.name.demodulize.sub('PartyDetails', '')
       subclass.add_string_simple_properties '0_35', ["#{prefix}PartyIdentifier"], required: false
-      subclass.add_simple_collections ["#{prefix}OrganisationName"], ::RFinvoice::Type::Array1_1000[::RFinvoice::Type::String2_35], required: true
+      subclass.add_simple_collections ["#{prefix}OrganisationName"], ::Array[::RFinvoice::Type::String2_35], required: false
       department_name = if prefix == 'InvoiceRecipient'
                           "#{prefix}Department"
                         else

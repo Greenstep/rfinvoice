@@ -9,6 +9,10 @@ module RFinvoice
     end
 
     class << self
+      def decorator
+        "RFinvoice::Decorator::#{to_s.demodulize}".constantize.new(new)
+      end
+
       def add_simple_properties(klass, array, options)
         self.xml_properties += array.map { |key| { key: key, type: :property } }
         array.each do |key|

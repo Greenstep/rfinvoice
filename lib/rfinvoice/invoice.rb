@@ -29,11 +29,11 @@ require 'rfinvoice/invoice/epi_details'
 
 module RFinvoice
   class Invoice < Model
-    attribute :version, ::String, default: '2.01'
-    attribute :xmlns_xsi, ::String, default: 'http://www.w3.org/2001/XMLSchema-instance'
-    attribute :xsi_nonamespace, ::String, default: 'Finvoice2.01.xsd'
+    attribute :version, ::String, default: '2.01', required: false
+    attribute :xmlns_xsi, ::String, default: 'http://www.w3.org/2001/XMLSchema-instance', required: false
+    attribute :xsi_nonamespace, ::String, default: 'Finvoice2.01.xsd', required: false
     add_modelized_properties %w(MessageTransmissionDetails), required: false
-    add_modelized_properties %w(SellerPartyDetails), required: true
+    add_modelized_properties %w(SellerPartyDetails), required: false
     add_string_simple_properties '0_35', %w(SellerOrganisationUnitNumber SellerSiteCode SellerContactPersonName), required: false
     add_simple_collections %w(SellerContactPersonFunction SellerContactPersonDepartment), ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
     add_modelized_properties %w(SellerCommunicationDetails SellerInformationDetails InvoiceSenderPartyDetails InvoiceRecipientPartyDetails), required: false
@@ -47,10 +47,10 @@ module RFinvoice
     add_string_simple_properties '0_35', %w(DeliveryOrganisationUnitNumber DeliverySiteCode DeliveryContactPersonName), required: false
     add_simple_collections %w(DeliveryContactPersonFunction DeliveryContactPersonDepartment), ::RFinvoice::Type::Array0_2[::RFinvoice::Type::String0_35], required: false
     add_modelized_properties %w(DeliveryCommunicationDetails DeliveryDetails), required: false
-    add_modelized_properties %w(InvoiceDetails), required: true
+    add_modelized_properties %w(InvoiceDetails), required: false
     add_string_simple_properties '0_512', %w(VirtualBankBarcode), required: false
-    add_modelized_collection_array %w(InvoiceRow), required: true
-    add_modelized_properties %w(EpiDetails), required: true
+    add_modelized_collection_array %w(InvoiceRow), required: false
+    add_modelized_properties %w(EpiDetails), required: false
     add_simple_collections %w(InvoiceUrlNameText InvoiceUrlText), ::Array[::RFinvoice::Type::String0_512], required: false
     add_string_simple_properties '0_512', %w(StorageUrlText), required: false
     add_string_simple_properties '0_35', %w(LayOutIdentifier InvoiceSegmentIdentifier), required: false
@@ -59,6 +59,12 @@ module RFinvoice
 
     def to_xml
       decorator.to_xml
+    end
+
+    class << self
+      def from_xml(xml)
+        decorator.from_xml(xml)
+      end
     end
   end
 end

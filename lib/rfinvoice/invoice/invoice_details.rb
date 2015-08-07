@@ -6,12 +6,12 @@ require 'rfinvoice/invoice/payment_terms_details'
 
 module RFinvoice
   class InvoiceDetails < Model
-    add_modelized_properties %w(InvoiceTypeCode), required: true
-    add_string_simple_properties '1_35', %w(InvoiceTypeText), required: true
-    add_simple_properties ::RFinvoice::Type::OriginCodeType, %w(OriginCode), required: true
+    add_modelized_properties %w(InvoiceTypeCode), required: false
+    add_string_simple_properties '1_35', %w(InvoiceTypeText), required: false
+    add_simple_properties ::RFinvoice::Type::OriginCodeType, %w(OriginCode), required: false
     add_string_simple_properties '0_35', %w(OriginText), required: false
     add_string_simple_properties '1_20', %w(InvoiceNumber), required: true
-    add_date_properties %w(InvoiceDate), required: true
+    add_date_properties %w(InvoiceDate), required: false
     add_string_simple_properties '1_20', %w(OriginalInvoiceNumber), required: false
     add_date_properties %w(InvoicingPeriodStartDate InvoicingPeriodEndDate), required: false
     add_string_simple_properties '0_35', %w(SellerReferenceIdentifier), required: false
@@ -32,7 +32,7 @@ module RFinvoice
     add_string_simple_properties '0_35', %w(BuyerReferenceIdentifier ProjectReferenceIdentifier), required: false
     add_modelized_collection_array %w(DefinitionDetails), required: false
     add_amount_properties %w(InvoiceTotalVatExcludedAmount InvoiceTotalVatAmount), required: false
-    add_amount_properties %w(InvoiceTotalVatIncludedAmount), required: true
+    add_amount_properties %w(InvoiceTotalVatIncludedAmount), required: false
     add_amount_properties %w(InvoiceTotalRoundoffAmount), required: false
     add_simple_properties ::RFinvoice::Type::ExchangeRateType, %w(ExchangeRate), required: false
     add_amount_properties %w(OtherCurrencyAmountVatExcludedAmount), required: false

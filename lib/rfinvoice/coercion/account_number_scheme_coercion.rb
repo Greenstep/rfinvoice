@@ -8,7 +8,7 @@ module RFinvoice
       ENUM = %w(IBAN BBAN)
 
       def coerce(value)
-        return unless value
+        return '' unless value
         coerce_for_enum(value)
       end
     end

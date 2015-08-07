@@ -8,7 +8,7 @@ module RFinvoice
       ENUM = %w(BIC)
 
       def coerce(value)
-        return unless value
+        return 'BIC' unless value
         coerce_for_enum(value)
       end
     end

@@ -1,3 +1,5 @@
+require 'pry'
+require 'active_support/core_ext/object/blank'
 module RFinvoice
   module Decorator
     class BaseDecorator < ::Representable::Decorator
@@ -13,24 +15,32 @@ module RFinvoice
         def init_xml_properties(subclass, model_klass)
           return unless model_klass.respond_to?(:xml_properties)
           model_klass.xml_properties.each do |property|
-            key = property[:key]
             case property[:type]
             when :property
-              subclass.property key.underscore.to_sym, as: key
+              subclass.simple_item(:property, property)
             when :complex_property
               subclass.decorated_item(:property, property)
             when :collection
-              subclass.collection key.underscore.to_sym, as: key
+              subclass.simple_item(:collection, property)
             when :complex_collection
               subclass.decorated_item(:collection, property)
             end
           end
         end
 
+        def simple_item(type, options)
+          key   = options[:key]
+          __send__(type, key.underscore.to_sym, as: key, skip_render: ->(obj, _) { !obj.present? })
+        end
+
         def decorated_item(type, options)
-          key = options[:key]
+          key   = options[:key]
           klass = options[:klass]
-          __send__(type, key.underscore.to_sym, as: key, decorator: "RFinvoice::Decorator::#{klass}".constantize)
+          __send__(type, key.underscore.to_sym,
+                   as: key,
+                   class: "RFinvoice::#{klass}".constantize,
+                   decorator: "RFinvoice::Decorator::#{klass}".constantize
+                  )
         end
       end
     end

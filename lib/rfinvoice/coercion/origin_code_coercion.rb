@@ -8,7 +8,7 @@ module RFinvoice
       ENUM = %w(Original Copy Cancel)
 
       def coerce(value)
-        return unless value
+        return '' unless value
         coerce_for_enum(value)
       end
 

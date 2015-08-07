@@ -5,6 +5,6 @@ RSpec.describe ::RFinvoice::InvoiceSenderPartyDetails do
 
   it_should_behave_like 'a typed attributes', %w(InvoiceSenderPartyIdentifier), 'String0_35', false
   it_should_behave_like 'a typed attributes', %w(InvoiceSenderOrganisationTaxCode), 'NMToken0_35', false
-  it_should_behave_like 'a typed array attributes', %w(InvoiceSenderOrganisationName), ::RFinvoice::Type::Array1_1000, 'String2_35', true
+  it_should_behave_like 'a typed array attributes', %w(InvoiceSenderOrganisationName), ::RFinvoice::Type::Array1_1000, 'String2_35', false
   it_should_behave_like 'a complex attributes', %w(InvoiceSenderCode), false
 end

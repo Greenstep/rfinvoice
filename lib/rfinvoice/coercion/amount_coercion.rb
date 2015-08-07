@@ -6,7 +6,7 @@ module RFinvoice
       strict true
 
       def coerce(value)
-        return unless value
+        return '' unless value
         coerce_for_pattern(value)
       end
 

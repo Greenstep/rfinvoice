@@ -4,6 +4,6 @@ require 'rfinvoice/invoice/epi_payment_instruction_details'
 
 module RFinvoice
   class EpiDetails < Model
-    add_modelized_properties %w(EpiIdentificationDetails EpiPartyDetails EpiPaymentInstructionDetails), required: true
+    add_modelized_properties %w(EpiIdentificationDetails EpiPartyDetails EpiPaymentInstructionDetails), required: false
   end
 end

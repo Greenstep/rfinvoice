@@ -7,7 +7,7 @@ module RFinvoice
       strict true
 
       def coerce(value)
-        return unless value
+        return '' unless value
         value = normalize_string(value)
         coerce_for_limit(value)
       end

@@ -7,8 +7,8 @@ module RFinvoice
     add_token_simple_properties '3', %w(EpiTransactionTypeCode), required: false
     add_nmtoken_simple_properties '0_35', %w(EpiInstructionCode), required: false
     add_modelized_properties %w(EpiRemittanceInfoIdentifier), required: false
-    add_properties_with_type %w(EpiInstructedAmount), ::RFinvoice::EpiAmount, required: true
-    add_modelized_properties %w(EpiCharge), required: true, default: ->(_i, _a) { EpiCharge.new }
-    add_date_properties %w(EpiDateOptionDate), required: true
+    add_properties_with_type %w(EpiInstructedAmount), ::RFinvoice::EpiAmount, required: false
+    add_modelized_properties %w(EpiCharge), required: false, default: ->(_i, _a) { EpiCharge.new }
+    add_date_properties %w(EpiDateOptionDate), required: false
   end
 end

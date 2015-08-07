@@ -5,8 +5,8 @@ RSpec.describe ::RFinvoice::EpiPaymentInstructionDetails do
   it_should_behave_like 'a typed attributes', %w(EpiPaymentInstructionId), 'String0_35', false
   it_should_behave_like 'a typed attributes', %w(EpiTransactionTypeCode), 'Token3', false
   it_should_behave_like 'a typed attributes', %w(EpiInstructionCode), 'NMToken0_35', false
-  it_should_behave_like 'a modelized attributes', %w(EpiDateOptionDate), 'Date', true
-  it_should_behave_like 'a modelized attributes', %w(EpiInstructedAmount), 'EpiAmount', true
+  it_should_behave_like 'a modelized attributes', %w(EpiDateOptionDate), 'Date', false
+  it_should_behave_like 'a modelized attributes', %w(EpiInstructedAmount), 'EpiAmount', false
   it_should_behave_like 'a complex attributes', %w(EpiRemittanceInfoIdentifier), false
-  it_should_behave_like 'a complex attributes', %w(EpiCharge), true
+  it_should_behave_like 'a complex attributes', %w(EpiCharge), false
 end
