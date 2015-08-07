@@ -13,5 +13,3 @@ matrix:
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-head
-cache: bundler
-sudo: false
