@@ -14,7 +14,7 @@ module RFinvoice
       klass = ::Class.new(::RFinvoice::Coercion::Token)     # class ::RFinvoice::Coercion::Token1_20 < ::RFinvoice::Coercion::Token
       klass.primitive(const_get(klass_name))                #   primitive ::RFinvoice::Type::Token1_20
       klass.const_set('LIMIT', limit)                       #   LIMIT = 0..14
-      ::RFinvoice::Coercion.const_set("#{klass_name}Coercion", klass)    # end
+      ::RFinvoice::Coercion.const_set("#{klass_name}Coercion", klass) # end
     end
   end
 end

@@ -8,7 +8,7 @@ module RFinvoice
       class << self
         def inherited(subclass)
           subclass.representation_wrap = subclass.name.demodulize
-          model_klass = "RFinvoice::#{subclass.name.demodulize}".constantize
+          model_klass                  = "RFinvoice::#{subclass.name.demodulize}".constantize
           init_xml_properties(subclass, model_klass)
         end
 
@@ -29,7 +29,7 @@ module RFinvoice
         end
 
         def simple_item(type, options)
-          key   = options[:key]
+          key = options[:key]
           __send__(type, key.underscore.to_sym, as: key, skip_render: ->(obj, _) { !obj.present? })
         end
 
@@ -37,8 +37,8 @@ module RFinvoice
           key   = options[:key]
           klass = options[:klass]
           __send__(type, key.underscore.to_sym,
-                   as: key,
-                   class: "RFinvoice::#{klass}".constantize,
+                   as:        key,
+                   class:     "RFinvoice::#{klass}".constantize,
                    decorator: "RFinvoice::Decorator::#{klass}".constantize
                   )
         end
