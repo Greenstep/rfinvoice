@@ -21,7 +21,6 @@ RSpec.describe ::RFinvoice::InvoiceDetails do
   it_should_behave_like 'a typed attributes', %w(ControllerIdentifier ControllerName), 'String0_35', false
   it_should_behave_like 'a typed attributes', %w(BuyerReferenceIdentifier ProjectReferenceIdentifier), 'String0_35', false
   it_should_behave_like 'a typed attributes', %w(ProposedAccountText AccountDimensionText SellerAccountText), 'String0_35', false
-  it_should_behave_like 'a typed attributes', %w(), 'String0_35', false
   it_should_behave_like 'a typed attributes', %w(InvoiceVatFreeText), 'String0_70', false
   it_should_behave_like 'a typed attributes', %w(ShortProposedAccountIdentifier NormalProposedAccountIdentifier), 'NMToken0_4', false
   it_should_behave_like 'a typed attributes', %w(InvoiceNumber), 'String1_20', true

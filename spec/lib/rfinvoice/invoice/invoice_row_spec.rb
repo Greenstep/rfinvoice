@@ -29,7 +29,6 @@ RSpec.describe ::RFinvoice::InvoiceRow do
   it_should_behave_like 'a typed attributes', %w(CreditRequestedQuantity ReturnedQuantity UnitPriceBaseQuantity), 'Quantity14', false
   it_should_behave_like 'a modelized array attributes', %w(OfferedQuantity DeliveredQuantity), ::Array, 'Quantity14', false
   it_should_behave_like 'a modelized array attributes', %w(SubInvoiceRow), ::Array, 'SubInvoiceRow', false
-
-  # it_should_behave_like 'a complex attributes', %w(InvoiceTypeCode),  false
+  it_should_behave_like 'a complex attributes', %w(RowDeliveryDetails),  false
   # it_should_behave_like 'a typed array attributes', %w(InvoiceFreeText), ::RFinvoice::Type::Array0_2, 'String0_512', false
 end
