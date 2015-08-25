@@ -34,7 +34,7 @@ module RFinvoice
         add_string_simple_properties '0_35', %w(RowProjectReferenceIdentifier).map { |x| "#{prefix}#{x}" }, required: false
         # add_modelized_properties %w(RowOverDuePaymentDetails) TODO: Implement this
         # add_modelized_collection_array %w(RowAnyPartyDetails) TODO: Implement this
-        # add_modelized_properties %w(RowDeliveryDetails) TODO: Implement this
+        add_simple_collections %w(RowDeliveryDetails), ::RFinvoice::Type::Array0_3[::RFinvoice::Type::String0_35], required: false if prefix == ''
         add_nmtoken_simple_properties '0_4', %w(RowShortProposedAccountIdentifier RowNormalProposedAccountIdentifier).map { |x| "#{prefix}#{x}" }, required: false
         add_string_simple_properties '0_35', %w(RowProposedAccountText RowAccountDimensionText RowSellerAccountText).map { |x| "#{prefix}#{x}" }, required: false
         add_simple_collections %w(RowFreeText).map { |x| "#{prefix}#{x}" }, ::Array[::RFinvoice::Type::String0_512], required: false

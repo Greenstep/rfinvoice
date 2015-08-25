@@ -1,4 +1,5 @@
 require 'rfinvoice/invoice/row_definition_details'
+require 'rfinvoice/invoice/row_delivery_details'
 require 'rfinvoice/invoice/sub_invoice_row'
 
 module RFinvoice
